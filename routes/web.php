@@ -58,14 +58,6 @@ Route::get('/terms-and-conditions', function () {
 })->name('terms');
 
 
-
-// Route::fallback(function () {
-//     if (request()->segment(1) == 'admin' || request()->segment(1) == 'admin-login') {
-//         return redirect()->route('admin.login.form');
-//     }
-//     return abort(404);
-// });
-
 Route::get('/optimize', function () {
     Artisan::call('optimize:clear');
     dd("done");
