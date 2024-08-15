@@ -25,6 +25,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
+
+// now its my turn
+
 Route::get('/mtn-momo', function () {
     return view('landingpage.mtn-momo');
 });
