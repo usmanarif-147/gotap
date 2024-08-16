@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cards', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('uuid');
+            $table->id();
+            $table->string('uuid', 255);
             $table->string('type')->default('Standard');
             $table->tinyInteger('status')->default(0);
             $table->tinyInteger('is_assigned')->default(0);
-            $table->string('description')->nullable();
+            $table->string('description', 255)->nullable();
             $table->timestamps();
         });
     }

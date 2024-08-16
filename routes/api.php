@@ -4,7 +4,6 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CardController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\GroupController;
-use App\Http\Controllers\Api\LinkController;
 use App\Http\Controllers\Api\PhoneContactController;
 use App\Http\Controllers\Api\PlatformController;
 use App\Http\Controllers\Api\ProfileController as UserProfileController;
@@ -26,14 +25,14 @@ use App\Models\Card;
 */
 
 Route::post('/platformClick', [PlatformController::class, 'incrementClick'])->name('inc.platform.click');
-Route::get('/getCards',function () {
+Route::get('/getCards', function () {
     return Card::select(
         'id',
         'uuid',
         'status'
     )
-    ->where('status', 0)
-    ->get()->toArray();
+        ->where('status', 0)
+        ->get()->toArray();
 });
 // Route::post('/incrementProfileView', [PlatformController::class, 'incrementProfileView'])->name('inc.profile.view');
 
@@ -70,17 +69,6 @@ Route::middleware('localization')->group(function () {
             Route::post('/updateProfile', [UserProfileController::class, 'update']);
             Route::get('/userDirect', [UserProfileController::class, 'userDirect']);
             Route::get('/search', [UserProfileController::class, 'search']);
-
-
-
-            //old gotap user
-            // $router->get('/search', [UserController::class, 'search']);
-
-            // Links
-            Route::get('/links', [LinkController::class, 'index']);
-            Route::post('/addLink', [LinkController::class, 'add']);
-            Route::post('/updateLink', [LinkController::class, 'update']);
-            Route::get('/removeLink/{id}', [LinkController::class, 'remove']);
 
             // Platform
             // Route::post('/searchPlatform', [PlatformController::class, 'search']);

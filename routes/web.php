@@ -21,17 +21,71 @@ use App\Models\Card;
 use App\Models\Group;
 use App\Models\User;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/mtn-momo', function () {
-    return view('landingpage.mtn-momo');
+Route::get('/get-json-data', function () {
+
+    $tables = [
+        'admins',
+        'users',
+        'phone_contacts',
+        'cards',
+        'categories',
+        'platforms',
+        'connects',
+        'groups',
+        'group_contacts',
+        'scan_visits',
+        'user_cards',
+        'user_groups',
+        'user_platforms'
+    ];
+
+    foreach ($tables as $table) {
+        $data = DB::table($table)->get()->toJson(JSON_PRETTY_PRINT);
+        $filePath = database_path('gotaps/' . $table . '.json');
+        File::put($filePath, $data);
+    }
+
+    dd("done");
 });
 
-Route::get('/testing', function () {
-    dd("testing");
+Route::get('/save-json-data', function () {
+    $tables = [
+        'admins',
+        'users',
+        'phone_contacts',
+        'cards',
+        'categories',
+        'platforms',
+        'connects',
+        'groups',
+        'group_contacts',
+        'scan_visits',
+        'user_cards',
+        'user_groups',
+        'user_platforms'
+    ];
+
+    foreach ($tables as $table) {
+        $filePath = database_path('gotaps/' . $table . '.json');
+
+        if (File::exists($filePath)) {
+            $jsonContent = File::get($filePath);
+            $data = json_decode($jsonContent, true);
+
+            for ($i = 0; $i < count($data); $i++) {
+                DB::table($table)->insert($data[$i]);
+            }
+        } else {
+            dd("File not found");
+        }
+    }
+
+    dd("done");
 });
 
 Route::get('/privacy-and-policy', function () {

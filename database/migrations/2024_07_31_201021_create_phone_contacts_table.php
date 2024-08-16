@@ -15,18 +15,19 @@ return new class extends Migration
     {
         Schema::create('phone_contacts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('first_name');
-            $table->string('last_name')->nullable();
-            $table->string('email')->nullable();
-            $table->string('photo')->nullable();
-            $table->string('work_email')->nullable();
-            $table->string('company_name')->nullable();
-            $table->string('job_title')->nullable();
-            $table->string('address')->nullable();
-            $table->string('phone');
-            $table->string('work_phone')->nullable();
-            $table->string('website')->nullable();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->string('first_name', 255);
+            $table->string('last_name', 255)->nullable();
+            $table->string('email', 255)->nullable();
+            $table->string('photo', 255)->nullable();
+            $table->string('work_email', 255)->nullable();
+            $table->string('company_name', 255)->nullable();
+            $table->string('job_title', 255)->nullable();
+            $table->string('address', 255)->nullable();
+            $table->string('phone', 255);
+            $table->string('work_phone', 255)->nullable();
+            $table->string('website', 255)->nullable();
             $table->timestamps();
         });
     }

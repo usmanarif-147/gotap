@@ -15,20 +15,18 @@ return new class extends Migration
     {
         Schema::create('platforms', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('icon')->nullable();
-            $table->string('input')->default('username');
-            $table->string('baseURL')->nullable();
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
+            $table->string('title', 255);
+            $table->string('icon', 255)->nullable();
+            $table->string('input', 255)->default('username');
+            $table->string('baseURL', 255)->nullable();
             $table->boolean('pro')->default(0);
-            $table->unsignedBigInteger('category_id')->nullable();
             $table->boolean('status')->default(1);
-            $table->string('placeholder_en')->nullable();
-            $table->string('placeholder_sv')->nullable();
-            $table->string('description_en')->nullable();
-            $table->string('description_sv')->nullable();
+            $table->string('placeholder_en', 255)->nullable();
+            $table->string('placeholder_sv', 255)->nullable();
+            $table->string('description_en', 255)->nullable();
+            $table->string('description_sv', 255)->nullable();
             $table->timestamps();
-
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
         });
     }
 

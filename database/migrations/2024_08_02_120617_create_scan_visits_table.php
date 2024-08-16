@@ -15,14 +15,9 @@ return new class extends Migration
     {
         Schema::create('scan_visits', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('visiting_id');
-            $table->unsignedBigInteger('visited_id');
+            $table->foreignId('visiting_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('visited_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
-
-            $table->foreign('visiting_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('visited_id')->references('id')->on('users')->onDelete('cascade');
-
-            $table->index(['visiting_id', 'visited_id']);
         });
     }
 

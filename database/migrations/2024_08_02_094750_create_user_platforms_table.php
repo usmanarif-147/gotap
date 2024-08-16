@@ -15,16 +15,13 @@ return new class extends Migration
     {
         Schema::create('user_platforms', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->string('path');
-            $table->unsignedBigInteger('platform_id');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('platform_id')->constrained('platforms')->onDelete('cascade');
+            $table->string('path', 255);
             $table->boolean('direct')->default(0);
             $table->tinyInteger('platform_order')->default(1);
-            $table->string('label')->nullable();
+            $table->string('label', 255)->nullable();
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('platform_id')->references('id')->on('platforms')->onDelete('cascade');
         });
     }
 

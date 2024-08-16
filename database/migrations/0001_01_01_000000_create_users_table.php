@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 191)->nullable();
-            $table->string('email', 50)->nullable();
-            $table->string('username', 30)->charset('latin1')->collation('latin1_general_cs')->index()->nullable();
-            $table->string('phone', 20)->nullable();
+            $table->string('name', 255)->nullable();
+            $table->string('email', 255)->nullable();
+            $table->string('username', 255)->charset('latin1')->collation('latin1_general_cs')->index()->nullable();
+            $table->string('phone', 255)->nullable();
             $table->string('job_title', 255)->nullable();
             $table->string('company', 255)->nullable();
             $table->string('photo', 255)->nullable();
@@ -27,11 +27,11 @@ return new class extends Migration
             $table->tinyInteger('is_suspended')->default(0);
             $table->tinyInteger('user_direct')->default(0);
             $table->string('password', 255)->nullable();
-            $table->string('address', 100)->nullable();
+            $table->string('address', 255)->nullable();
             $table->string('work_position', 255)->nullable();
             $table->tinyInteger('gender')->nullable()->default(1)->comment('1=male,2=female,3=non-binary,4=not share');
             $table->integer('tiks')->default(0);
-            $table->string('dob', 30)->nullable();
+            $table->string('dob', 255)->nullable();
             $table->tinyInteger('private')->default(1);
             $table->tinyInteger('verified')->default(0);
             $table->tinyInteger('featured')->default(0);
@@ -41,6 +41,21 @@ return new class extends Migration
             $table->tinyInteger('is_email_sent')->default(0);
             $table->timestamp('created_at')->useCurrent()->useCurrentOnUpdate();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
+        });
+
+        Schema::create('password_resests', function (Blueprint $table) {
+            $table->string('email')->primary();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
+        });
+
+        Schema::create('sessions', function (Blueprint $table) {
+            $table->string('id')->primary();
+            $table->foreignId('user_id')->nullable()->index();
+            $table->string('ip_address', 45)->nullable();
+            $table->text('user_agent')->nullable();
+            $table->longText('payload');
+            $table->integer('last_activity')->index();
         });
     }
 
@@ -52,5 +67,7 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('users');
+        Schema::dropIfExists('password_resets');
+        Schema::dropIfExists('sessions');
     }
 };
