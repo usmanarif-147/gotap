@@ -39,68 +39,68 @@ Route::middleware('localization')->group(function () {
         Route::middleware('user.status')->group(function () {
 
             // User Profile
-            Route::get('/getProfiles', [ProfileController::class, 'index']);  // user id
-            Route::get('/profile', [ProfileController::class, 'profile']);   // user id
-            Route::post('/addProfile', [ProfileController::class, 'addProfile']);  // user id
-            Route::post('/switchProfile', [ProfileController::class, 'switchProfile']);  // user id
-            Route::post('/updateProfile', [ProfileController::class, 'update']);  // user id
+            Route::get('/getProfiles', [ProfileController::class, 'index']);
+            Route::get('/profile', [ProfileController::class, 'profile']);
+            Route::post('/addProfile', [ProfileController::class, 'addProfile']);
+            Route::post('/switchProfile', [ProfileController::class, 'switchProfile']);
+            Route::post('/updateProfile', [ProfileController::class, 'update']);
             Route::get('/userDirect', [ProfileController::class, 'userDirect']);
             Route::get('/search', [ProfileController::class, 'search']);
 
             // Platform
-            Route::get('/categories', [CategoryController::class, 'index']);   // profile id
+            Route::get('/categories', [CategoryController::class, 'index']);
             // Route::post('/searchPlatform', [PlatformController::class, 'search']);
-            Route::post('/addPlatform', [PlatformController::class, 'add']);  // profile id
-            Route::post('/removePlatform', [PlatformController::class, 'remove']);  // profile id reuired
-            Route::post('/swapOrder', [PlatformController::class, 'swap']);  // profile id
+            Route::post('/addPlatform', [PlatformController::class, 'add']);
+            Route::post('/removePlatform', [PlatformController::class, 'remove']);
+            Route::post('/swapOrder', [PlatformController::class, 'swap']);
             // Route::post('/platformDirect', [PlatformController::class, 'direct']);
             // Route::post('/platformDetails', [PlatformController::class, 'details']);
 
             // Phone Contact
-            Route::get('/phoneContacts', [PhoneContactController::class, 'index']);  // user id
-            Route::post('/addPhoneContact', [PhoneContactController::class, 'add']); // user id
-            Route::post('/phoneContact', [PhoneContactController::class, 'phoneContact']); // user id
-            Route::post('/updatePhoneContact', [PhoneContactController::class, 'update']); // user id
+            Route::get('/phoneContacts', [PhoneContactController::class, 'index']);
+            Route::post('/addPhoneContact', [PhoneContactController::class, 'add']);
+            Route::post('/phoneContact', [PhoneContactController::class, 'phoneContact']);
+            Route::post('/updatePhoneContact', [PhoneContactController::class, 'update']);
             Route::post('/removeContact', [PhoneContactController::class, 'remove']);
 
             // Group
-            Route::get('/groups', [GroupController::class, 'index']);  // user id
-            Route::post('/group', [GroupController::class, 'group']);  // user id
-            Route::post('/addGroup', [GroupController::class, 'add']);  // user id
-            Route::post('/updateGroup', [GroupController::class, 'update']); // user id
-            Route::post('/removeGroup', [GroupController::class, 'destroy']); // user id
+            Route::get('/groups', [GroupController::class, 'index']);
+            Route::post('/group', [GroupController::class, 'group']);
+            Route::post('/addGroup', [GroupController::class, 'add']);
+            Route::post('/updateGroup', [GroupController::class, 'update']);
+            Route::post('/removeGroup', [GroupController::class, 'destroy']);
 
-            Route::post('/addUserIntoGroup', [GroupController::class, 'addUser']); // user id
-            Route::post('/addContactIntoGroup', [GroupController::class, 'addContact']);  // user id
-            Route::post('/removeUserFromGroup', [GroupController::class, 'removeUser']);  // user id
-            Route::post('/removeContactFromGroup', [GroupController::class, 'removeContact']);  // user id
+            Route::post('/addUserIntoGroup', [GroupController::class, 'addUser']);
+            Route::post('/addContactIntoGroup', [GroupController::class, 'addContact']);
+            Route::post('/removeUserFromGroup', [GroupController::class, 'removeUser']);
+            Route::post('/removeContactFromGroup', [GroupController::class, 'removeContact']);
 
             // User
             // Route::post('/connect', [UserController::class, 'connect']);
-            Route::get('/analytics', [UserController::class, 'analytics']);  // profile id
-            Route::post('/privateProfile', [UserController::class, 'privateProfile']);  // profile id
+            Route::get('/analytics', [UserController::class, 'analytics']);
+            Route::post('/privateProfile', [UserController::class, 'privateProfile']);
 
-            Route::get('/deactivateAccount', [UserController::class, 'deactivateAccount']);  // user id
-            Route::get('/delete', [UserController::class, 'deleteAccount']);  // user id
+            Route::get('/deactivateAccount', [UserController::class, 'deactivateAccount']);
+            Route::get('/delete', [UserController::class, 'deleteAccount']);
 
 
             // Cards
-            Route::get('/cards', [CardController::class, 'index']);  // profile id
-            Route::post('/activateCard', [CardController::class, 'activateCard']);  // profile id
-            Route::post('/changeCardStatus', [CardController::class, 'changeCardStatus']);  // profile id
-            Route::post('/cardProfileDetail', [CardController::class, 'cardProfileDetail']);  // profile id
+            Route::get('/cards', [CardController::class, 'index']);
+            Route::post('/activateCard', [CardController::class, 'activateCard']);
+            Route::post('/changeCardStatus', [CardController::class, 'changeCardStatus']);
+            Route::post('/cardProfileDetail', [CardController::class, 'cardProfileDetail']);
 
             // View User Profile
             Route::post('/viewUserProfile', [ViewProfileController::class, 'viewUserProfile']);  // profile
 
             // Connects
-            Route::post('/connect', [ConnectController::class, 'connect']);  // user id
-            Route::post('/disconnect', [ConnectController::class, 'disconnect']);  // user id
-            Route::post('/connectionProfile', [ConnectController::class, 'getConnectionProfile']);  // user id
-            Route::get('/connections', [ConnectController::class, 'getConnections']);  // user id
+            Route::post('/connect', [ConnectController::class, 'connect']);
+            Route::post('/disconnect', [ConnectController::class, 'disconnect']);
+            Route::post('/connectionProfile', [ConnectController::class, 'getConnectionProfile']);
+            Route::get('/connections', [ConnectController::class, 'getConnections']);
 
             // Change Password
-            Route::post('/change-password', [AuthController::class, 'changePassword']);  // user id
+            Route::post('/change-password', [AuthController::class, 'changePassword']);
 
             // Random
             Route::get('/groupDetail/{num}', [GroupController::class, 'groupDetail']);
