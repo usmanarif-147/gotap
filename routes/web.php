@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
+// this is my code
 
 Route::get('/get-json-data', function () {
 
@@ -122,13 +123,6 @@ Route::get('/set-private-val', function () {
         'private' => 0
     ]);
 });
-
-// Route::get('/storage-link', function () {
-//     $targetFolder = storage_path('app/public');
-//     $linkFolder = $_SERVER['DOCUMENT_ROOT'] . '/storage';
-//     symlink($targetFolder, $linkFolder);
-//     dd("done");
-// });
 
 Route::middleware('auth:admin')->group(function () {
 
