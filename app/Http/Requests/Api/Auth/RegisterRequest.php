@@ -27,7 +27,7 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name' => ['nullable', 'min:3', 'max:20'],
-            'username' => ['nullable', 'min:5', 'max:25', 'regex:/^[A-Za-z][A-Za-z0-9_.]{5,25}$/', 'unique:users'],
+            'username' => ['required', 'min:5', 'max:25', 'regex:/^[A-Za-z][A-Za-z0-9_.]{5,25}$/', 'unique:profiles'],
             'email' => ['required', 'email', 'max:50', 'unique:users'],
             'phone' => ['required', 'min:5', 'max:15'],
             'password' => ['required', 'min:6', 'confirmed'],

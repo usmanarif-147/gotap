@@ -6,7 +6,6 @@ use App\Models\User;
 use App\Models\Group;
 use App\Mail\WelcomeMail;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use App\Mail\ForgotPasswordMail;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -20,6 +19,8 @@ use App\Http\Requests\Api\Auth\RegisterRequest;
 use App\Http\Requests\Api\Auth\ResetPasswordRequest;
 use App\Http\Requests\Api\Auth\ForgotPasswordRequest;
 use App\Http\Requests\Api\Auth\RecoverAccountRequest;
+use App\Models\Profile;
+use Exception;
 
 class AuthController extends Controller
 {
@@ -29,38 +30,58 @@ class AuthController extends Controller
      */
     public function register(RegisterRequest $request)
     {
-        $user = User::create([
-            'name' => $request->name,
-            'username' => $request->username,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'password' => bcrypt($request->password),
-            'private' => 0
-        ]);
+        DB::beginTransaction();
 
-        Group::create([
-            'user_id' => $user->id,
-            'title' => 'favourites',
-        ]);
+        try {
 
-        Group::create([
-            'user_id' => $user->id,
-            'title' => 'scanned card',
-        ]);
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+            ]);
 
-        Mail::to($user->email)->send(new WelcomeMail($user));
+            Profile::create([
+                'user_id' => $user->id,
+                'username' => $request->username,
+                'phone' => $request->phone,
+                'active' => 1,
+                'private' => 0
+            ]);
 
-        $token = $user->createToken(getDeviceId()  ?: $user->email)->plainTextToken;
-        return response()->json(
-            [
+            Group::create([
+                'user_id' => $user->id,
+                'title' => 'favourites',
+            ]);
 
-                'message' => trans('backend.account_registered_success'),
-                'data' => new UserResource($user),
-                'token' => $token
-            ]
-        );
+            Group::create([
+                'user_id' => $user->id,
+                'title' => 'scanned card',
+            ]);
+
+            Mail::to($user->email)->send(new WelcomeMail($user));
+
+            DB::commit();
+
+            $token = $user->createToken(getDeviceId() ?: $user->email)->plainTextToken;
+            return response()->json(
+                [
+
+                    'message' => trans('backend.account_registered_success'),
+                    'data' => new UserResource($user),
+                    'token' => $token
+                ]
+            );
+        } catch (Exception $ex) {
+            DB::rollBack();
+
+            return response()->json(
+                [
+                    'message' => trans('backend.account_registration_failed'),
+                    'error' => $ex->getMessage()
+                ],
+            );
+        }
     }
-
 
     /**
      * Login
@@ -252,21 +273,24 @@ class AuthController extends Controller
 
     public function changePassword(ChangePasswordRequest $request)
     {
-        $user = Auth::user();
+        $user = User::where('id', auth()->id())->first();
 
         if (!$user) {
             return response()->json([
-                'message' => 'User is not authenticated.']);
+                'message' => 'User is not authenticated.'
+            ]);
         }
 
         if (!Hash::check($request->old_password, $user->password)) {
             return response()->json([
-                'message' => 'The old password is incorrect.']);
+                'message' => 'The old password is incorrect.'
+            ]);
         }
 
         if ($request->new_password !== $request->new_password_confirmation) {
             return response()->json([
-                'message' => 'The new password and confirmation password do not match.']);
+                'message' => 'The new password and confirmation password do not match.'
+            ]);
         }
 
         $user->password = Hash::make($request->new_password);
@@ -274,8 +298,7 @@ class AuthController extends Controller
 
         return response()->json([
 
-            'message' => 'Password changed successfully.']);
+            'message' => 'Password changed successfully.'
+        ]);
     }
-
-
 }

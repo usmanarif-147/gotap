@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('user_cards', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('profile_id')->constrained('profiles')->onDelete('cascade');
             $table->foreignId('card_id')->constrained('cards')->onDelete('cascade');
             $table->tinyInteger('status')->default(0);
             $table->timestamps();

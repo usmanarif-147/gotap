@@ -1,9 +1,10 @@
 <?php
 
 return [
-    
+
     // Auth
     'account_registered_success' => 'Account Registered Successfully.',
+    'account_registration_failed' => 'Account Registerion Process Failed.',
     'email_not_registered' => 'Email is not registered.',
     'password_incorrect' => 'Password is incorrect.',
     'logged_in_success' => 'Logged in successfully.',
@@ -16,14 +17,14 @@ return [
     'something_wrong' => 'Something went wrong.',
     'logged_out' => 'Logged Out Successfully.',
     'account_delete_or_deactivate' => 'Your account is deactivated or deleted',
-    
+
     // Card
     'card_not_found' => 'Card not found',
     'card_already_active' => 'Card is already activated',
     'card_active_success' => 'Card activated successfully',
     'card_deactive_success' => 'Card dectivated successfully',
     'not_authenticated' => 'Not authenticated user',
-    
+
     // Connect
     'connection_not_found' => 'Connection not found',
     'already_connected' => 'You both are already connected.',
@@ -32,7 +33,7 @@ return [
     'connection_removed' => 'Connection removed successfully',
     'profile_not_found' => 'Profile not found',
     'user_profile' => 'User profile',
-    
+
     // Group
     'group_not_found' => 'Group not found',
     'group_already_exist' => 'Group with same title is already exist',
@@ -51,19 +52,19 @@ return [
     'contact_added_success' => 'Contact added into group successfully',
     'cannot_delete_contact' => 'You cannot delete this contact because contact not found',
     'contact_removed_success' => 'Contact removed from group successfully',
-    
+
     // Link
     'link_created_success' => 'Link Created Successfully',
     'link_not_found' => 'Link not found',
     'link_updated_success' => 'Link updated successfully',
     'link_deleted_success' => 'Link deleted successfully',
-    
+
     // Contact
     'phone_contact_not_found' => 'Phone Contact not found',
     'phone_conact_added_success' => 'Phone Contact added successfully',
     'phone_contact_updated_success' => 'Phone Contact updated successfully',
     'phone_contact_deleted_success' => 'Phone Contact removed successfully',
-    
+
     // Platform
     'valid_url' => 'Please enter valid url or email or phone number e.g [facebook.com, www.facebook.com, https://www.facebook.com]',
     'platform_not_found' => 'Platform not found',
@@ -74,30 +75,30 @@ return [
     'platform_visible_success' => 'Plateform updated to visible successfully',
     'own_platform_click' => 'You can not click your own platform',
     'platform_clicked' => 'Platform clicked successfully',
-    
+
     // Profile
     'profile_updated_failed' => 'Sorry, Pofile not updated',
     'profile_updated_success' => 'Pofile updated successfully',
     'platform_set_public' => 'All platforms are set to public',
     'first_platform_public' => 'Only first platform on top set to public',
     'profile_set_to' => "Profile is set to ",
-    
+
     // User
     'connection_removed_fails' => "Ooops Could not be removed",
     'connection_success' => "Connected successfully",
     'profile_set_public' => "Profile is set to public",
     'profile_set_private' => "Profile is set to private",
     'account_will_delete' => 'You have 2 weeks to recover your account, otherwise your account will be deleted.',
-    
+
     // User profile
     'card_inactive' => "Card is not activated",
     'profile_not_accessible' => "User profile not accessible",
-    
+
     // Analytics
     'connections' => 'Connections',
     'profile_views' => 'Profile Views',
     'platform_clicks' => 'Platform Clicks',
     'platforms' => 'Platforms',
     'groups' => 'Groups',
-    
+
 ];

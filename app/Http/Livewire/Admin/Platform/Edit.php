@@ -32,7 +32,7 @@ class Edit extends Component
     {
         return [
             'title'             => ['required'],
-            'icon'              => ['nullable', 'mimes:jpeg,jpg,png', 'max:2000'],
+            'icon'              => ['nullable', 'mimes:jpeg,jpg,png,webp', 'max:2000'],
             'pro'               => ['required', 'not_in:'],
             'category_id'       => ['required', 'not_in:'],
             'status'            => ['required', 'not_in:'],
@@ -50,7 +50,7 @@ class Edit extends Component
         return [
             'title.required'            => 'required',
             'icon.nullable'             => 'nullable',
-            'icon.mimes'                => 'mimes:jpeg,jpg,png',
+            'icon.mimes'                => 'mimes:jpeg,jpg,png,webp',
             'icon.max'                  => 'max:2000',
             'pro.required'              => 'required',
             'pro.not_in'                => 'Invalid selection for pro',
@@ -136,7 +136,6 @@ class Edit extends Component
     public function render()
     {
         $this->heading = "Edit";
-        return view('livewire.admin.platform.edit')
-            ->layout('layouts.app');
+        return view('livewire.admin.platform.edit');
     }
 }

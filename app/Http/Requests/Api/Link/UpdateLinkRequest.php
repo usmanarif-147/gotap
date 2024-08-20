@@ -28,7 +28,7 @@ class UpdateLinkRequest extends FormRequest
         return [
             'link_id' => ['required'],
             'title' => ['required'],
-            'icon' => ['nullable', 'mimes:jpeg,jpg,png', 'max:2000'],
+            'icon' => ['nullable', 'mimes:jpeg,jpg,png,webp', 'max:2000'],
         ];
     }
 

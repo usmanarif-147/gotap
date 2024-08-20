@@ -19,47 +19,33 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
         'username',
-        'phone',
-        'job_title',
-        'company',
-        'photo',
-        'cover_photo',
-        'gender',
-        'address',
-        'work_position',
-        'password',
-        'user_direct',
-        'tiks',
-        'dob',
-        'private',
-        'verified',
-        'fetured',
-        'bio',
-        'fcm_token',
+        'email',
         'status',
         'is_suspended',
+        'password',
+        'address',
+        'gender',
+        'dob',
+        'verified',
+        'featured',
+        'fcm_token',
         'deactivated_at',
         'is_email_sent',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
+
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function profiles()
+    {
+        return $this->hasMany(Profile::class);
+    }
 }

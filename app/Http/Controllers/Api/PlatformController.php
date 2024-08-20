@@ -39,7 +39,6 @@ class PlatformController extends Controller
      **/
     public function details(Request $request)
     {
-
         $platform = Platform::find($request->id);
 
         if (!$platform) {
@@ -55,10 +54,11 @@ class PlatformController extends Controller
 
     public function add(AddPlatformRequest $request)
     {
-        $platform = Platform::where('id', $request->platform_id)->where('status', 1)->first();
+        $platform = Platform::where('id', $request->platform_id)
+            ->where('status', 1)
+            ->first();
         if (!$platform) {
             return response()->json([
-
                 'message' => trans('backend.platform_not_found')
             ]);
         }
@@ -70,9 +70,12 @@ class PlatformController extends Controller
             }
         }
 
+        $profile = getActiveProfile();
+
         $user_platform = DB::table('user_platforms')
             ->where('platform_id', $request->platform_id)
             ->where('user_id', auth()->id())
+            ->where('profile_id', $profile->id)
             ->first();
 
         try {
@@ -83,16 +86,16 @@ class PlatformController extends Controller
                 DB::table('user_platforms')
                     ->where('platform_id', $request->platform_id)
                     ->where('user_id', auth()->id())
+                    ->where('profile_id', $profile->id)
                     ->update([
                         'label' => $request->label,
                         'path' => $path,
-                        'direct' => $request->direct
+                        'direct' => $request->direct ? $request->direct : 0
                     ]);
 
-                $userPlatform = $this->userPlatform($request->platform_id);
+                $userPlatform = $this->userPlatform($request->platform_id, $profile->id);
                 if ($userPlatform) {
                     return response()->json([
-
                         'message' => trans('backend.platform_updated_success'),
                         'data' => $userPlatform
                     ]);
@@ -102,19 +105,21 @@ class PlatformController extends Controller
                 $path = $request->path;
                 $latestPlatform = DB::table('user_platforms')
                     ->where('user_id', auth()->id())
+                    ->where('profile_id', $profile->id)
                     ->latest()
                     ->first();
 
                 DB::table('user_platforms')->insert([
                     'user_id' => auth()->id(),
+                    'profile_id' => $profile->id,
                     'platform_id' => $request->platform_id,
-                    'direct' => $request->direct,
+                    'direct' => $request->direct ? $request->direct : 0,
                     'label' => $request->label,
                     'path' => $path,
                     'platform_order' => $latestPlatform ? ($latestPlatform->platform_order + 1) : 1,
                 ]);
 
-                $userPlatform = $this->userPlatform($request->platform_id);
+                $userPlatform = $this->userPlatform($request->platform_id, $profile->id);
                 return response()->json([
                     "message" => trans('backend.platform_added_success'),
                     'data' => $userPlatform
@@ -132,23 +137,26 @@ class PlatformController extends Controller
      */
     public function remove(PlatformRequest $request)
     {
+        $profile = getActiveProfile();
         $platform = DB::table('user_platforms')
             ->where('user_id', auth()->id())
+            ->where('profile_id', $profile->id)
             ->where('platform_id', $request->platform_id)
             ->first();
+
         if (!$platform) {
             return response()->json([
-
                 'message' => trans('backend.platform_not_found')
             ]);
         }
 
         $platform = DB::table('user_platforms')
             ->where('user_id', auth()->id())
+            ->where('profile_id', $profile->id)
             ->where('platform_id', $request->platform_id)
             ->delete();
-        return response()->json([
 
+        return response()->json([
             'message' => trans('backend.platform_removed_success')
         ]);
     }
@@ -244,7 +252,7 @@ class PlatformController extends Controller
     /**
      * Platform Response (private)
      */
-    private function userPlatform($id)
+    private function userPlatform($id, $profileId)
     {
         $userPlatform = DB::table('user_platforms')
             ->select(
@@ -257,6 +265,7 @@ class PlatformController extends Controller
             ->join('platforms', 'platforms.id', 'user_platforms.platform_id')
             ->where('platform_id', $id)
             ->where('user_id', auth()->id())
+            ->where('profile_id', $profileId)
             ->first();
 
         return $userPlatform;

@@ -23,7 +23,7 @@
                                             {{-- <img src="{{ asset(isImageExist($preview_photo, 'profile')) }}" alt="user-avatar"
                                                 class="d-block rounded" height="200" width="170"> --}}
 
-                                                <img src="{{ asset(Storage::url($preview_photo)) }}" alt="user-avatar"
+                                            <img src="{{ asset(Storage::url($preview_photo)) }}" alt="user-avatar"
                                                 class="d-block rounded" height="200" width="170">
                                         @endif
 
@@ -181,7 +181,8 @@
 
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn" style="background: #0EA7C1; color:white">Update</button>
+                        <button type="submit" class="btn"
+                            style="background: #0EA7C1; color:white">Update</button>
                     </div>
                 </form>
             </div>

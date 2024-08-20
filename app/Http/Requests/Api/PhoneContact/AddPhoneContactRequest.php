@@ -35,12 +35,12 @@ class AddPhoneContactRequest extends FormRequest
             'address'       => ['nullable', 'min:3', 'max:110'],
             'phone'      => ['required', 'min:5', 'max:15'],
             'work_phone' => ['nullable', 'min:5', 'max:15'],
-            'photo' => ['nullable', 'mimes:jpeg,jpg,png', 'max:2000'],
+            'photo' => ['nullable', 'mimes:jpeg,jpg,png,webp', 'max:2000'],
 
         ];
     }
 
-   public function messages()
+    public function messages()
     {
         return [
             'first_name.required' => trans('validation.first_name_required'),
@@ -57,7 +57,7 @@ class AddPhoneContactRequest extends FormRequest
             'job_title.max'  => trans('validation.job_title_max'),
             'address.min'       => trans('validation.address_min'),
             'address.max'       => trans('validation.address_max'),
-            'phone.required'      =>trans('validation.phone_required'),
+            'phone.required'      => trans('validation.phone_required'),
             'phone.min'      => trans('validation.phone_min'),
             'phone.max'      => trans('validation.phone_max'),
             'work_phone.min' => trans('validation.work_phone_min'),

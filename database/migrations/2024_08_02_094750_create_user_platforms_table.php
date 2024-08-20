@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('user_platforms', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('profile_id')->constrained('profiles')->onDelete('cascade');
             $table->foreignId('platform_id')->constrained('platforms')->onDelete('cascade');
             $table->string('path', 255);
             $table->boolean('direct')->default(0);

@@ -1,42 +1,17 @@
 <?php
 
+use App\Models\Profile;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
-// define('ENCRYPT_METHOD', 'AES-256-CBC');
-// define('SECRET_KEY', 'live4ajvf11224vb');
-// define('SECRET_IV', 'liveaves2211bfhhj34hb');
 
-// if (!function_exists('customEncrypt')) {
-//     function customEncrypt($string)
-//     {
-//         // hash
-//         $key = hash('sha256', SECRET_KEY);
-//         // iv - encrypt method AES-256-CBC expects 16 bytes - else you will get a warning
-//         $iv = substr(hash('sha256', SECRET_IV), 0, 16);
-//         $output = openssl_encrypt($string, ENCRYPT_METHOD, $key, 0, $iv);
-//         $output = base64_encode($output);
-//         return $output;
-//     }
-// }
-
-// if (!function_exists('customDecrypt')) {
-
-//     function customDecrypt($string)
-//     {
-//         if (is_numeric($string)) {
-//             return $string;
-//         }
-//         // hash
-//         $key = hash('sha256', SECRET_KEY);
-//         // iv - encrypt method AES-256-CBC expects 16 bytes - else you will get a warning
-//         $iv = substr(hash('sha256', SECRET_IV), 0, 16);
-//         $output = openssl_decrypt(base64_decode($string), ENCRYPT_METHOD, $key, 0, $iv);
-//         return $output;
-//     }
-// }
-
+if (!function_exists('getActiveProfile')) {
+    function getActiveProfile()
+    {
+        return Profile::where('user_id', auth()->id())->where('active', 1)->first();
+    }
+}
 
 if (!function_exists('model_delete_status')) {
     function model_delete_status($model)
@@ -89,14 +64,15 @@ if (!function_exists('default_time_format')) {
 }
 
 if (!function_exists('generate_string')) {
-    function generate_string($input, $strength = 16) {
-    $input_length = strlen($input);
-    $random_string = '';
-    for($i = 0; $i < $strength; $i++) {
-        $random_character = $input[mt_rand(0, $input_length - 1)];
-        $random_string .= $random_character;
-    }
-    return $random_string;
+    function generate_string($input, $strength = 16)
+    {
+        $input_length = strlen($input);
+        $random_string = '';
+        for ($i = 0; $i < $strength; $i++) {
+            $random_character = $input[mt_rand(0, $input_length - 1)];
+            $random_string .= $random_character;
+        }
+        return $random_string;
     }
 }
 
@@ -126,25 +102,25 @@ if (!function_exists('uploadImage')) {
 }
 
 if (!function_exists('isImageExist')) {
-    function isImageExist($image, $type=null)
+    function isImageExist($image, $type = null)
     {
         if ($image) {
             if (Storage::exists('public/' . $image)) {
                 return 'storage/' . $image;
             } else {
-                if($type == 'profile') {
+                if ($type == 'profile') {
                     return 'user.png';
                 }
-                if($type == 'platform') {
+                if ($type == 'platform') {
                     return 'pbg.png';
                 }
                 return 'platform-bg.png';
             }
         }
-        if($type == 'profile') {
-             return 'user.png';
+        if ($type == 'profile') {
+            return 'user.png';
         }
-        if($type == 'platform') {
+        if ($type == 'platform') {
             return 'pbg.png';
         }
         return 'platform-bg.png';

@@ -11,6 +11,7 @@ class PhoneContact extends Model
 
     protected $fillable = [
         'user_id',
+        'profile_id',
         'first_name',
         'last_name',
         'email',

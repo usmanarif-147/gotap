@@ -27,7 +27,7 @@ class AddLinkRequest extends FormRequest
     {
         return [
             'title' => ['required'],
-            'icon' => ['nullable', 'mimes:jpeg,jpg,png', 'max:2000'],
+            'icon' => ['nullable', 'mimes:jpeg,jpg,png,webp', 'max:2000'],
         ];
     }
 

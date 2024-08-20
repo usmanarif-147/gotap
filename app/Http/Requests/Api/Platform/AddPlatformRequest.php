@@ -27,21 +27,22 @@ class AddPlatformRequest extends FormRequest
     {
         return [
             'platform_id' => ['required'],
-            'path' => ['string'],
+            'path' => ['required', 'string'],
             'label' => ['max:25'],
             'direct' => ['in:0,1'],
         ];
     }
-    
+
     public function messages()
     {
-         return [
+        return [
             'platform_id.required' => trans('validation.platform_id_required'),
+            'path.require' => trans('Please Enter Valid Path'),
             'path.string' => trans('validation.path_string'),
             'label.max' => trans('validation.label_max_length'),
         ];
     }
-    
+
     // public function messages()
     // {
     //     return [

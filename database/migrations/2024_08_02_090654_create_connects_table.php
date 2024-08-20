@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('connects', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('connecting_id')->constrained('users')->onDelete('restrict')->onUpdate('restrict');
-            $table->foreignId('connected_id')->constrained('users')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreignId('user_id')->constrained('users')->onDelete('restrict');
+            $table->foreignId('connecting_id')->constrained('profiles')->onDelete('restrict');
+            $table->foreignId('connected_id')->constrained('users')->onDelete('restrict');
             $table->timestamps();
         });
     }

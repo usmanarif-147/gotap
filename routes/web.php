@@ -156,7 +156,6 @@ Route::middleware('auth:admin')->group(function () {
 
     // logs
     Route::get('admin/logs', Logs::class);
-    Route::get('admin/test', Testing::class);
 
     // profile
     Route::post('/changePassword', [ProfileController::class, 'changePassword'])->name('profile.change.password');

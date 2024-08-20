@@ -49,13 +49,15 @@ class PhoneContactController extends Controller
 
         if (!$contact) {
             return response()->json([
-                'message' => trans('backend.phone_contact_not_found')]);
+                'message' => trans('backend.phone_contact_not_found')
+            ]);
         }
 
         return response()->json([
 
             'message' => 'Phone Contacts',
-            'data' => new ContactResource($contact)]);
+            'data' => new ContactResource($contact)
+        ]);
     }
 
     /**

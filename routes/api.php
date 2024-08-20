@@ -6,23 +6,12 @@ use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\GroupController;
 use App\Http\Controllers\Api\PhoneContactController;
 use App\Http\Controllers\Api\PlatformController;
-use App\Http\Controllers\Api\ProfileController as UserProfileController;
+use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\ConnectController;
 use App\Http\Controllers\Api\ViewProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Card;
-
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
 
 Route::post('/platformClick', [PlatformController::class, 'incrementClick'])->name('inc.platform.click');
 Route::get('/getCards', function () {
@@ -34,7 +23,6 @@ Route::get('/getCards', function () {
         ->where('status', 0)
         ->get()->toArray();
 });
-// Route::post('/incrementProfileView', [PlatformController::class, 'incrementProfileView'])->name('inc.profile.view');
 
 Route::middleware('localization')->group(function () {
 
@@ -44,86 +32,78 @@ Route::middleware('localization')->group(function () {
     Route::post('resetPassword', [AuthController::class, 'resetPassword']);
     Route::post('/recoverAccount', [AuthController::class, 'recoverAccount']);
 
-    //old gotap
-    // $router->post('/forgetPassword', [AuthController::class, 'forgetPassword']);
     Route::post('/otpVerification', [AuthController::class, 'otpVerify']);
 
     Route::middleware('auth:sanctum')->group(function () {
 
         Route::middleware('user.status')->group(function () {
 
-            Route::post('/change-password', [AuthController::class, 'changePassword']);
-            // Category
-            Route::get('/categories', [CategoryController::class, 'index']);
-
-            // User
-            // Route::post('/connect', [UserController::class, 'connect']);
-            Route::get('/analytics', [UserController::class, 'analytics']);
-            Route::post('/privateProfile', [UserController::class, 'privateProfile']);
-
-            Route::get('/deactivateAccount', [UserController::class, 'deactivateAccount']);
-            Route::get('/delete', [UserController::class, 'deleteAccount']);
-
             // User Profile
-            Route::get('/profile', [UserProfileController::class, 'index']);
-            Route::post('/updateProfile', [UserProfileController::class, 'update']);
-            Route::get('/userDirect', [UserProfileController::class, 'userDirect']);
-            Route::get('/search', [UserProfileController::class, 'search']);
+            Route::get('/getProfiles', [ProfileController::class, 'index']);  // user id
+            Route::get('/profile', [ProfileController::class, 'profile']);   // user id
+            Route::post('/addProfile', [ProfileController::class, 'addProfile']);  // user id
+            Route::post('/switchProfile', [ProfileController::class, 'switchProfile']);  // user id
+            Route::post('/updateProfile', [ProfileController::class, 'update']);  // user id
+            Route::get('/userDirect', [ProfileController::class, 'userDirect']);
+            Route::get('/search', [ProfileController::class, 'search']);
 
             // Platform
+            Route::get('/categories', [CategoryController::class, 'index']);   // profile id
             // Route::post('/searchPlatform', [PlatformController::class, 'search']);
-            Route::post('/addPlatform', [PlatformController::class, 'add']);
-            Route::post('/removePlatform', [PlatformController::class, 'remove']);
-            Route::post('/swapOrder', [PlatformController::class, 'swap']);
+            Route::post('/addPlatform', [PlatformController::class, 'add']);  // profile id
+            Route::post('/removePlatform', [PlatformController::class, 'remove']);  // profile id reuired
+            Route::post('/swapOrder', [PlatformController::class, 'swap']);  // profile id
             // Route::post('/platformDirect', [PlatformController::class, 'direct']);
             // Route::post('/platformDetails', [PlatformController::class, 'details']);
 
-            //old gotap
-
-            // $router->get('/phoneContact/{num}', [PlatformController::class, 'phone_contact']);
-
-
             // Phone Contact
-            Route::get('/phoneContacts', [PhoneContactController::class, 'index']);
-            Route::post('/addPhoneContact', [PhoneContactController::class, 'add']);
-            Route::post('/phoneContact', [PhoneContactController::class, 'phoneContact']);
-            Route::post('/updatePhoneContact', [PhoneContactController::class, 'update']);
+            Route::get('/phoneContacts', [PhoneContactController::class, 'index']);  // user id
+            Route::post('/addPhoneContact', [PhoneContactController::class, 'add']); // user id
+            Route::post('/phoneContact', [PhoneContactController::class, 'phoneContact']); // user id
+            Route::post('/updatePhoneContact', [PhoneContactController::class, 'update']); // user id
             Route::post('/removeContact', [PhoneContactController::class, 'remove']);
 
             // Group
-            Route::get('/groups', [GroupController::class, 'index']);
-            Route::post('/group', [GroupController::class, 'group']);
-            Route::post('/addGroup', [GroupController::class, 'add']);
-            Route::post('/updateGroup', [GroupController::class, 'update']);
-            Route::post('/removeGroup', [GroupController::class, 'destroy']);
-            Route::post('/addUserIntoGroup', [GroupController::class, 'addUser']);
-            Route::post('/addContactIntoGroup', [GroupController::class, 'addContact']);
-            Route::post('/removeUserFromGroup', [GroupController::class, 'removeUser']);
-            Route::post('/removeContactFromGroup', [GroupController::class, 'removeContact']);
-            Route::get('/groupDetail/{num}', [GroupController::class, 'groupDetail']);
+            Route::get('/groups', [GroupController::class, 'index']);  // user id
+            Route::post('/group', [GroupController::class, 'group']);  // user id
+            Route::post('/addGroup', [GroupController::class, 'add']);  // user id
+            Route::post('/updateGroup', [GroupController::class, 'update']); // user id
+            Route::post('/removeGroup', [GroupController::class, 'destroy']); // user id
 
+            Route::post('/addUserIntoGroup', [GroupController::class, 'addUser']); // user id
+            Route::post('/addContactIntoGroup', [GroupController::class, 'addContact']);  // user id
+            Route::post('/removeUserFromGroup', [GroupController::class, 'removeUser']);  // user id
+            Route::post('/removeContactFromGroup', [GroupController::class, 'removeContact']);  // user id
 
-            //olg gotap groups
+            // User
+            // Route::post('/connect', [UserController::class, 'connect']);
+            Route::get('/analytics', [UserController::class, 'analytics']);  // profile id
+            Route::post('/privateProfile', [UserController::class, 'privateProfile']);  // profile id
+
+            Route::get('/deactivateAccount', [UserController::class, 'deactivateAccount']);  // user id
+            Route::get('/delete', [UserController::class, 'deleteAccount']);  // user id
 
 
             // Cards
-            Route::get('/cards', [CardController::class, 'index']);
-            Route::post('/activateCard', [CardController::class, 'activateCard']);
-            Route::post('/changeCardStatus', [CardController::class, 'changeCardStatus']);
-            Route::post('/cardProfileDetail', [CardController::class, 'cardProfileDetail']);
-            // Route::get('/userTags', [CardController::class, 'userTags']);
-
-            //old gotap card
-            // $router->post('/cardProfileDetail', [CardController::class, 'cardProfileDetail']);
+            Route::get('/cards', [CardController::class, 'index']);  // profile id
+            Route::post('/activateCard', [CardController::class, 'activateCard']);  // profile id
+            Route::post('/changeCardStatus', [CardController::class, 'changeCardStatus']);  // profile id
+            Route::post('/cardProfileDetail', [CardController::class, 'cardProfileDetail']);  // profile id
 
             // View User Profile
-            Route::post('/viewUserProfile', [ViewProfileController::class, 'viewUserProfile']);
+            Route::post('/viewUserProfile', [ViewProfileController::class, 'viewUserProfile']);  // profile
 
             // Connects
-            Route::post('/connect', [ConnectController::class, 'connect']); //done
-            Route::post('/disconnect', [ConnectController::class, 'disconnect']);
-            Route::post('/connectionProfile', [ConnectController::class, 'getConnectionProfile']);
-            Route::get('/connections', [ConnectController::class, 'getConnections']);
+            Route::post('/connect', [ConnectController::class, 'connect']);  // user id
+            Route::post('/disconnect', [ConnectController::class, 'disconnect']);  // user id
+            Route::post('/connectionProfile', [ConnectController::class, 'getConnectionProfile']);  // user id
+            Route::get('/connections', [ConnectController::class, 'getConnections']);  // user id
+
+            // Change Password
+            Route::post('/change-password', [AuthController::class, 'changePassword']);  // user id
+
+            // Random
+            Route::get('/groupDetail/{num}', [GroupController::class, 'groupDetail']);
         });
         Route::get('logout', [AuthController::class, 'logout']);
     });

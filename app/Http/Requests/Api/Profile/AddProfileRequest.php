@@ -2,11 +2,12 @@
 
 namespace App\Http\Requests\Api\Profile;
 
+use App\Models\Profile;
 use App\Models\User;
-use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class UpdateProfileRequest extends FormRequest
+class AddProfileRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,43 +27,28 @@ class UpdateProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'min:3', 'max:20'],
-            'work_position' => ['nullable', 'string'],
+            'username' => ['required', 'min:3', 'max:20', 'regex:/^[A-Za-z][A-Za-z0-9_.]{5,25}$/', Rule::unique(Profile::class)],
+            'work_position' => ['nullable', 'min:3', 'max:20'],
+            'phone' => ['nullable', 'min:5', 'max:15'],
             'job_title' => ['nullable', 'string'],
             'company' => ['nullable', 'string'],
-            'address' => ['nullable', 'string'],
-            'bio' => ['nullable', 'string'],
+            'address' => ['nullable'],
+            'bio' => ['nullable'],
             'cover_photo' => ['nullable', 'mimes:jpg,jpeg,png,webp', 'max:4096'],
             'photo' => ['nullable', 'mimes:jpg,jpeg,png,webp', 'max:4096'],
         ];
     }
 
-    // public function messages()
-    // {
-    //     return [
-    //         'gender.in' => 'Please enter 1 for male, 2 for female, 3 for not-share',
-    //         'username.regex' => 'The username must start with a letter and can only contain letters (uppercase or lowercase), numbers, underscores, or periods. It should be between 5 and 25 characters long.'
-    //     ];
-    // }
-
     public function messages()
     {
         return [
-            'name.required' => trans('validation.name_required'),
-            'name.min' => trans('validation.name_min'),
-            'name.max' => trans('validation.name_max'),
-
             'username.required' => trans('validation.username_required'),
             'username.min' => trans('validation.username_min'),
             'username.max' => trans('validation.username_max'),
             'username.regex' => trans('validation.username_regex'),
+            'username.unique' => 'Username already exists',
             'phone.min' => trans('validation.phone_min'),
             'phone.max' => trans('validation.phone_max'),
-            'gender.in' => trans('validation.gender_in'),
-            'dob.date' => trans('validation.dob_date'),
-            'dob.before' => trans('validation.dob_before'),
-            'private.required' => trans('validation.private_required'),
-            'name.string' => trans('validation.name_string'),
             'cover_photo.mimes' => trans('validation.cover_photo_mimes'),
             'cover_photo.max' => trans('validation.cover_photo_max'),
             'photo.mimes' => trans('validation.photo_mimes'),

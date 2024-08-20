@@ -27,6 +27,7 @@ class UserInGroupRequest extends FormRequest
     {
         return [
             'user_id' => ['required'],
+            'profile_id' => ['required'],
             'group_id' => ['required']
         ];
     }

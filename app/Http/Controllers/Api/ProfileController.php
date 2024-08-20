@@ -6,43 +6,159 @@ use Exception;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Profile\AddProfileRequest;
 use App\Http\Requests\SearchRequest;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Resources\Api\ProfileResource;
 use App\Http\Resources\Api\PlatformResource;
-use App\Http\Livewire\Admin\Category\Categoies;
 use App\Http\Requests\Api\Profile\UpdateProfileRequest;
+use App\Http\Resources\Api\UserProfileResource;
+use App\Http\Resources\Api\UserResource;
+use App\Models\Group;
+use App\Models\Profile;
+use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
+
     public function index()
     {
-        $platforms = DB::table('user_platforms')
-        ->select(
-            'platforms.id',
-            'platforms.title',
-            'platforms.icon',
-            'platforms.input',
-            'platforms.baseUrl',
-            'user_platforms.created_at',
-            'user_platforms.path',
-            'user_platforms.label',
-            'user_platforms.platform_order',
-            'user_platforms.direct',
-        )
-        ->join('platforms', 'platforms.id', '=', 'user_platforms.platform_id')
-        ->where('user_id', auth()->id())
-        ->orderBy('user_platforms.platform_order')
-        ->get();
+
+        $user = User::where('id', auth()->id())->first();
 
         return response()->json(
             [
-                'profile' => new ProfileResource(auth()->user()),
+                'message' => 'User Profiles',
+                'data' => new UserResource($user),
+            ]
+        );
+    }
+
+    public function profile()
+    {
+        $profile = getActiveProfile();
+        $platforms = DB::table('user_platforms')
+            ->select(
+                'platforms.id',
+                'platforms.title',
+                'platforms.icon',
+                'platforms.input',
+                'platforms.baseUrl',
+                'user_platforms.created_at',
+                'user_platforms.path',
+                'user_platforms.label',
+                'user_platforms.platform_order',
+                'user_platforms.direct',
+                'user_platforms.profile_id'
+            )
+            ->join('platforms', 'platforms.id', '=', 'user_platforms.platform_id')
+            ->where('user_id', auth()->id())
+            ->where('profile_id', $profile->id)
+            ->orderBy('user_platforms.platform_order')
+            ->get();
+
+        return response()->json(
+            [
+                'profile' => new UserProfileResource($profile),
                 'platforms' => PlatformResource::collection($platforms)
             ]
         );
     }
 
+    public function switchProfile(Request $request)
+    {
+        $request->validate([
+            'profile_id' => ['required']
+        ], [
+            'profile_id.required' => 'Please enter valid Profile Id'
+        ]);
+
+        $exist = Profile::where('user_id', auth()->id())
+            ->where('id', $request->profile_id)
+            ->exists();
+        if (!$exist) {
+            return response()->json([
+                'message' => 'Profile Does not exist'
+            ]);
+        }
+
+        $active = Profile::where('user_id', auth()->id())
+            ->where('id', $request->profile_id)
+            ->first()
+            ->active;
+        if ($active) {
+            return response()->json([
+                'message' => 'Profile is Already Active'
+            ]);
+        }
+
+        Profile::where('user_id', auth()->id())->update([
+            'active' => 0
+        ]);
+
+        Profile::where('user_id', auth()->id())
+            ->where('id', $request->profile_id)
+            ->update([
+                'active' => 1
+            ]);
+
+        return response()->json([
+            'message' => 'Profile Switched Successfully'
+        ]);
+    }
+
+    public function addProfile(AddProfileRequest $request)
+    {
+        DB::beginTransaction();
+        try {
+            $data = [];
+            if ($request->hasFile('photo')) {
+                $data['photo'] = Storage::disk('public')->put('/uploads/photos', $request->photo);
+            }
+            if ($request->hasFile('cover_photo')) {
+                $data['cover_photo'] = Storage::disk('public')->put('/uploads/coverPhotos', $request->cover_photo);
+            }
+
+            $data['user_id'] = auth()->id();
+            $data['username'] = $request->username;
+            $data['work_position'] = $request->work_position;
+            $data['phone'] = $request->phone;
+            $data['job_title'] = $request->job_title;
+            $data['company'] = $request->company;
+            $data['address'] = $request->address;
+            $data['bio'] = $request->bio;
+            $data['active'] = 1;
+
+            Profile::where('user_id', auth()->id())->update(['active' => 0]);
+
+            $profile = Profile::create($data);
+
+            Group::create([
+                'user_id' => $profile->user_id,
+                'profile_id' => $profile->id,
+                'title' => 'favourites',
+            ]);
+
+            Group::create([
+                'user_id' => $profile->user_id,
+                'profile_id' => $profile->id,
+                'title' => 'scanned card',
+            ]);
+
+            DB::commit();
+
+            return response()->json([
+                'message' => trans('profile created successfully'),
+                'data' => new UserProfileResource($profile)
+            ]);
+        } catch (Exception $ex) {
+
+            DB::rollBack();
+            return response()->json([
+                'message' => $ex->getMessage(),
+            ]);
+        }
+    }
 
 
     public function update(UpdateProfileRequest $request)
@@ -74,36 +190,44 @@ class ProfileController extends Controller
                 }
             }
 
-            $user = User::where('id', auth()->id())->first();
+            $user = User::where('id', auth()->id())
+                ->first();
 
-            $isUpdated = User::where('id', auth()->id())->update([
-                'username' => $request->username ? $request->username : $user->username,
-                'email' => $request->email ? $request->email : $user->email,
-                'bio' => $request->bio,
-                'gender' => $request->gender,
-                'dob' => $request->dob,
-                'private' => $request->private ? $request->private : $user->private,
-                'name' => $request->name,
-                'cover_photo' => $cover_photo,
-                'photo' => $photo,
-                'address' => $request->address,
-                'job_title' => $request->job_title,
-                'company' => $request->company,
-                'phone' => $request->phone,
-                'work_position'=> $request->work_position,
-            ]);
+            $isUpdated = User::where('id', auth()->id())
+                ->update([
+                    'name' => $request->name,
+                ]);
+
+            $profile = getActiveProfile();
+
+            Profile::where('id', $profile->id)
+                ->where('user_id', auth()->id())
+                ->update([
+                    'work_position' => $request->work_position,
+                    'job_title' => $request->job_title,
+                    'company' => $request->company,
+                    'address' => $request->address,
+                    'bio' => $request->bio,
+                    'cover_photo' => $cover_photo,
+                    'photo' => $photo,
+                ]);
 
             if (!$isUpdated) {
                 return response()->json([
-
                     'message' => trans('backend.profile_updated_failed')
                 ]);
             }
 
             $user = User::where('id', auth()->id())->get()->first();
+            $profile = Profile::where('id', $profile->id)
+                ->where('user_id', auth()->id())
+                ->get()
+                ->first();
 
             return response()->json([
-                'message' => trans('backend.profile_updated_success'), 'data' => $user
+                'message' => trans('backend.profile_updated_success'),
+                'user' => new UserResource($user),
+                'profile' => new UserProfileResource($profile)
             ]);
         } catch (Exception $ex) {
             return response()->json([
@@ -115,29 +239,38 @@ class ProfileController extends Controller
 
     public function userDirect()
     {
-        $user = auth()->user();
-
-        if ($user->user_direct) {
-            User::where('id', $user->id)
+        $profile = getActiveProfile();
+        if ($profile->user_direct) {
+            Profile::where('id', $profile->id)
                 ->update(
                     [
                         'user_direct' => 0
                     ]
                 );
 
-            $user = User::find(auth()->id());
+            $profile = getActiveProfile();
 
-            return response()->json(['message' => trans('backend.platform_set_public'), 'profile' => new ProfileResource($user)]);
+            return response()->json(
+                [
+                    'message' => trans('backend.platform_set_public'),
+                    'profile' => new UserProfileResource($profile)
+                ]
+            );
         }
 
-        User::where('id', auth()->id())
+        Profile::where('id', $profile->id)
             ->update(
                 [
                     'user_direct' => 1
                 ]
             );
-        $user = User::find(auth()->id());
-        return response()->json(['message' => trans('backend.first_platform_public'), 'profile' => new ProfileResource($user)]);
+        $profile = getActiveProfile();
+        return response()->json(
+            [
+                'message' => trans('backend.first_platform_public'),
+                'profile' => new UserProfileResource($profile)
+            ]
+        );
     }
 
     public function privateProfile()

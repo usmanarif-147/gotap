@@ -17,7 +17,7 @@ class CategoryController extends Controller
     {
 
         $categoryService =  new CategoryService();
-        $transformedResponse = $categoryService->categoryWithPlatorms(auth()->id());
+        $transformedResponse = $categoryService->categoryWithPlatforms(auth()->id());
 
         // Return the transformed response
         return response()->json(['categories' => $transformedResponse]);

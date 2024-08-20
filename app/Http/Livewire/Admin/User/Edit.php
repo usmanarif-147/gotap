@@ -51,8 +51,8 @@ class Edit extends Component
         return [
             'name'         => ['sometimes'],
             'email'        => ['required', 'email'],
-            'photo'        => ['nullable', 'mimes:jpeg,jpg,png', 'max:2000'],
-            'cover_photo'  => ['nullable', 'mimes:jpeg,jpg,png', 'max:2000'],
+            'photo'        => ['nullable', 'mimes:jpeg,jpg,png,webp', 'max:2000'],
+            'cover_photo'  => ['nullable', 'mimes:jpeg,jpg,png,webp', 'max:2000'],
             'username'     => ['required'],
             'job_title'    => ['sometimes'],
             'phone'        => ['sometimes'],
@@ -154,7 +154,6 @@ class Edit extends Component
     {
         $this->heading = "Edit";
 
-        return view('livewire.admin.user.edit')
-            ->layout('layouts.app');
+        return view('livewire.admin.user.edit');
     }
 }

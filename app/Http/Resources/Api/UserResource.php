@@ -14,30 +14,25 @@ class UserResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
+
+        $data =  [
             'id' => $this->id,
-            'name' =>  $this->name,
             'email' => $this->email,
-            'username' => $this->username,
-            'phone' => $this->phone,
-            'job_title' =>  $this->job_title,
-            'company' =>  $this->company,
-            'photo' =>  $this->photo,
-            'cover_photo' =>  $this->cover_photo,
+            'name' => $this->name,
             'status' =>  $this->status,
             'is_suspended' =>  $this->is_suspended,
-            'user_direct' =>  $this->user_direct,
             'address' =>  $this->address,
-            'work_position' =>  $this->work_position,
             'gender' =>  $this->gender,
-            'tiks' =>  $this->tiks,
             'dob' =>  $this->dob,
-            'private' =>  $this->private,
             'verified' =>  $this->verified,
             'featured' =>  $this->featured,
-            'bio' =>  $this->bio,
             'deactivated_at' =>  $this->deactivated_at,
-            'created_at' => defaultDateFormat($this->created_at),
         ];
+
+        if (request()->segment(2) != 'updateProfile') {
+            $data['profiles'] = UserProfileResource::collection($this->profiles);
+        }
+
+        return $data;
     }
 }

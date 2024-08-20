@@ -4,10 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use Exception;
 use App\Models\Card;
-use App\Models\User;
-use App\Models\Connect;
-use App\Models\UserCard;
-use App\Models\ScanVisit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -58,11 +54,14 @@ class CardController extends Controller
             ]);
         }
 
+        $profile = getActiveProfile();
+
         try {
             // insert card in user cards table
             DB::table('user_cards')->insert([
                 'card_id' => $card->id,
                 'user_id' => auth()->id(),
+                'profile_id' => $profile->id,
                 'status' => 1
             ]);
 
@@ -99,9 +98,12 @@ class CardController extends Controller
             ]);
         }
 
+        $profile = getActiveProfile();
+
         // check is card belongs to the user
         $checkCard = DB::table('user_cards')
             ->where('user_id', auth()->id())
+            ->where('profile_id', $profile->id)
             ->where('card_id', $card->id)
             ->get()
             ->first();
@@ -182,16 +184,27 @@ class CardController extends Controller
         $platforms = DB::table('user_platforms')
             ->join('platforms', 'user_platforms.platform_id', '=', 'platforms.id')
             ->where('user_platforms.user_id', $user->id)
-            ->select('platforms.id', 'platforms.title', 'platforms.icon', 'platforms.input', 'platforms.baseUrl',
-                     'platforms.placeholder_en', 'platforms.placeholder_sv', 'platforms.description_en',
-                     'platforms.description_sv', 'user_platforms.path', 'user_platforms.label', 'user_platforms.direct',
-                     'user_platforms.platform_order')
+            ->select(
+                'platforms.id',
+                'platforms.title',
+                'platforms.icon',
+                'platforms.input',
+                'platforms.baseUrl',
+                'platforms.placeholder_en',
+                'platforms.placeholder_sv',
+                'platforms.description_en',
+                'platforms.description_sv',
+                'user_platforms.path',
+                'user_platforms.label',
+                'user_platforms.direct',
+                'user_platforms.platform_order'
+            )
             ->get();
 
-    $isConnected = DB::table('connects')
-    ->where('connecting_id', auth()->id())
-    ->where('connected_id', $user->id)
-    ->exists() ? 1 : 0;
+        $isConnected = DB::table('connects')
+            ->where('connecting_id', auth()->id())
+            ->where('connected_id', $user->id)
+            ->exists() ? 1 : 0;
 
 
         $response = [
@@ -226,5 +239,4 @@ class CardController extends Controller
 
         return response()->json($response);
     }
-
 }

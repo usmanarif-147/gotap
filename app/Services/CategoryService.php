@@ -9,22 +9,24 @@ use Illuminate\Support\Facades\DB;
 class CategoryService
 {
 
-    public function categoryWithPlatorms($id  = null)
+    public function categoryWithPlatforms($id  = null)
     {
-        // $categories = Category::join('platforms', 'platforms.category_id', 'categories.id')->get();
+        $profile = getActiveProfile();
         $categories = Category::whereExists(function ($query) {
             $query->select(DB::raw(1))
                 ->from('platforms')
                 ->whereRaw('platforms.category_id = categories.id')
                 ->where('platforms.status', '=', '1');
-    })
-        ->get();
+        })
+            ->get();
+
         $userPlatforms = DB::table('user_platforms')
             ->select(
                 'platforms.id as platform_id'
             )
             ->join('platforms', 'platforms.id', 'user_platforms.platform_id')
             ->where('user_id', $id)
+            ->where('profile_id', $profile->id)
             ->get()
             ->toArray();
 
@@ -57,7 +59,7 @@ class CategoryService
                 $transformedPlatform = [];
 
                 //Get extra details from user_platforms table
-                $userPlatform = $this->getUserPlatformDetails($platform->id);
+                $userPlatform = $this->getUserPlatformDetails($platform->id, $profile->id);
 
                 // Add the desired properties to the transformed platform
                 $transformedPlatform['id'] = $platform->id;
@@ -104,20 +106,15 @@ class CategoryService
         return 0;
     }
 
-    private function getUserPlatformDetails($id)
+    private function getUserPlatformDetails($id, $profileId)
     {
-        
-        
-        
         $userPlatform = DB::table('user_platforms')
             ->where('platform_id', $id)
             ->where('user_id', auth()->id())
+            ->where('profile_id', $profileId)
             ->first();
-            
-        
-        
+
         if ($userPlatform) {
-            // dd($userPlatform->path);
             return ['path' => $userPlatform->path, 'direct' => $userPlatform->direct];
         }
         return null;
