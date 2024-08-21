@@ -59,7 +59,6 @@ class ConnectController extends Controller
             return response()->json(['message' => $ex->getMessage()]);
         }
 
-
         // if ($request->connect_id == auth()->id()) {
         //     return response()->json([
         //         'message' => 'Please enter valid connect Id'

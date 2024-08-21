@@ -12,6 +12,8 @@ use App\Http\Controllers\Api\ConnectController;
 use App\Http\Controllers\Api\ViewProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Card;
+use App\Models\Profile;
+use App\Models\User;
 
 Route::post('/platformClick', [PlatformController::class, 'incrementClick'])->name('inc.platform.click');
 Route::get('/getCards', function () {
@@ -21,6 +23,24 @@ Route::get('/getCards', function () {
         'status'
     )
         ->where('status', 0)
+        ->get()->toArray();
+});
+
+Route::get('/getAllProfiles', function () {
+    return Profile::select(
+        'id',
+        'username',
+        'name'
+    )
+        ->get()->toArray();
+});
+
+Route::get('/getAllAccounts', function () {
+    return User::select(
+        'id',
+        'username',
+        'email'
+    )
         ->get()->toArray();
 });
 
