@@ -10,8 +10,23 @@ class Platform extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'icon', 'pro', 'category_id', 'status', 'placeholder_en',
-        'placeholder_sv', 'description_en', 'description_sv',
-        'baseURL', 'input'
+        'category_id',
+        'title',
+        'icon',
+        'pro',
+        'status',
+        'placeholder_en',
+        'placeholder_sv',
+        'description_en',
+        'description_sv',
+        'baseURL',
+        'input'
     ];
+
+    public function profiles()
+    {
+        return $this->belongsToMany(Profile::class, 'user_platforms', 'platform_id', 'profile_id')
+            ->withPivot('path', 'direct', 'platform_order', 'label')
+            ->orderBy('platform_order');
+    }
 }

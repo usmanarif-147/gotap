@@ -45,7 +45,7 @@
                     <table class="table admin-table">
                         <thead class="table-light">
                             <tr>
-                                <th> Profile Pic </th>
+                                {{-- <th> Profile Pic </th> --}}
                                 <th> Name </th>
                                 <th> Email </th>
                                 <th> Username </th>
@@ -59,11 +59,11 @@
                         <tbody class="table-border-bottom-0">
                             @foreach ($users['users'] as $user)
                                 <tr>
-                                    <td>
+                                    {{-- <td>
                                         <div class="img-holder">
                                             <img src="{{ asset(isImageExist($user->photo, 'profile')) }}">
                                         </div>
-                                    </td>
+                                    </td> --}}
                                     <td> {{ $user->name ? $user->name : 'N/A' }}</td>
                                     <td>
                                         {{ $user->email }}

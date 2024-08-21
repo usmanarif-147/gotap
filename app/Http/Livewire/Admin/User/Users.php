@@ -10,7 +10,6 @@ use Livewire\WithPagination;
 
 class Users extends Component
 {
-
     use WithFileUploads, WithPagination;
 
     protected $paginationTheme = 'bootstrap';
@@ -48,7 +47,6 @@ class Users extends Component
             'users.name',
             'users.email',
             'users.username',
-            'users.photo',
             'users.status',
             'users.tiks',
             'users.created_at',

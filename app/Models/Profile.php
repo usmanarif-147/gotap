@@ -30,4 +30,11 @@ class Profile extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function platforms()
+    {
+        return $this->belongsToMany(Platform::class, 'user_platforms', 'profile_id', 'platform_id')
+            ->withPivot('path', 'direct', 'platform_order', 'label')
+            ->orderBy('platform_order');
+    }
 }

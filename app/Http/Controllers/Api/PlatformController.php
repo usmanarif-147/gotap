@@ -106,7 +106,8 @@ class PlatformController extends Controller
                 $latestPlatform = DB::table('user_platforms')
                     ->where('user_id', auth()->id())
                     ->where('profile_id', $profile->id)
-                    ->latest()
+                    ->orderBy('platform_order', 'desc')
+                    ->get()
                     ->first();
 
                 DB::table('user_platforms')->insert([
@@ -117,6 +118,7 @@ class PlatformController extends Controller
                     'label' => $request->label,
                     'path' => $path,
                     'platform_order' => $latestPlatform ? ($latestPlatform->platform_order + 1) : 1,
+                    'created_at' => now()
                 ]);
 
                 $userPlatform = $this->userPlatform($request->platform_id, $profile->id);
@@ -166,7 +168,6 @@ class PlatformController extends Controller
      */
     public function swap(SwapPlatformRequest $request)
     {
-
         if (!is_array($request->orderList)) {
             return response()->json(['message' => trans("order list must be an array")]);
         }
@@ -176,9 +177,12 @@ class PlatformController extends Controller
         $id = array_column($orderList, 'id');
         array_multisort($id, SORT_ASC, $orderList);
 
-        foreach ($orderList as $index => $platform) {
+        $profile = getActiveProfile();
+        foreach ($orderList as $platform) {
 
-            DB::table('user_platforms')->where('user_id', auth()->id())
+            DB::table('user_platforms')
+                ->where('user_id', auth()->id())
+                ->where('profile_id', $profile->id)
                 ->where('platform_id', $platform->id)
                 ->update(
                     [
@@ -188,7 +192,6 @@ class PlatformController extends Controller
         }
 
         return response()->json([
-
             'message' => trans("Order swapped successfully")
         ]);
     }

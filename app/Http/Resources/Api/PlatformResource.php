@@ -19,18 +19,18 @@ class PlatformResource extends JsonResource
             'title' => $this->title ?? null,
             'icon' => $this->icon ?? null,
             'input' => $this->input ?? null,
-            'baseUrl' => $this->baseUrl ?? null,
+            'baseUrl' => $this->baseURL ?? null,
             'placeholder_en' => $this->placeholder_en ?? null,
             'placeholder_sv' => $this->placeholder_sv ?? null,
             'description_en' => $this->description_en ?? null,
             'description_sv' => $this->description_sv ?? null,
-            'path' => $this->path ?? null,
-            'label' => $this->label ?? null,
-            'direct' => $this->direct ?? null,
-            'platform_order' => $this->platform_order ?? null,
+            'path' => $this->pivot->path ?? null,
+            'label' => $this->pivot->label ?? null,
+            'direct' => $this->pivot->direct ?? null,
+            'platform_order' => $this->pivot->platform_order ?? null,
         ];
 
-        if (request()->segment(2) == 'profile') {
+        if (request()->segment(2) == 'profile' || request()->segment(2) == 'getProfiles') {
             $data['saved'] = 1;
         }
 

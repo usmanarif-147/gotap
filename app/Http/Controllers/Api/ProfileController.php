@@ -60,7 +60,7 @@ class ProfileController extends Controller
         return response()->json(
             [
                 'profile' => new UserProfileResource($profile),
-                'platforms' => PlatformResource::collection($platforms)
+                // 'platforms' => PlatformResource::collection($platforms)
             ]
         );
     }
@@ -161,33 +161,24 @@ class ProfileController extends Controller
     }
 
 
-    public function update(UpdateProfileRequest $request)
+    public function update(Request $request)
     {
         try {
             $cover_photo = auth()->user()->cover_photo;
             $photo = auth()->user()->photo;
 
             if ($request->hasFile('cover_photo')) {
-                $image = $request->cover_photo;
-                $imageName = time() . '.' . $image->extension();
-                $image->storeAs('public/uploads/coverPhotos', $imageName);
-                $cover_photo = '/storage/uploads/coverPhotos/' . $imageName;
-                if (auth()->user()->cover_photo) {
-                    if (Storage::exists('public/' . auth()->user()->cover_photo)) {
-                        Storage::delete('public/' . auth()->user()->cover_photo);
-                    }
+                if ($cover_photo) {
+                    Storage::disk('public')->delete($cover_photo);
                 }
+                $cover_photo = Storage::disk('public')->put('uploads/coverPhotos', $request->cover_photo);
             }
+
             if ($request->hasFile('photo')) {
-                $image = $request->photo;
-                $imageName = time() . '.' . $image->extension();
-                $image->storeAs('public/uploads/photos', $imageName);
-                $photo = '/storage/uploads/photos/' . $imageName;
-                if (auth()->user()->photo) {
-                    if (Storage::exists('public/' . auth()->user()->photo)) {
-                        Storage::delete('public/' . auth()->user()->photo);
-                    }
+                if ($photo) {
+                    Storage::disk('public')->delete($photo);
                 }
+                $photo = Storage::disk('public')->put('uploads/photos', $request->photo);
             }
 
             $user = User::where('id', auth()->id())

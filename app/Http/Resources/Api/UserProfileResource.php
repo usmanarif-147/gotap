@@ -30,6 +30,7 @@ class UserProfileResource extends JsonResource
             'tiks' => $this->tiks ?? null,
             'private' => $this->private ?? null,
             'created_at' => defaultDateFormat($this->created_at),
+            'platforms' => PlatformResource::collection($this->platforms)
         ];
     }
 }

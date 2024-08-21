@@ -26,6 +26,7 @@ class UserResource extends JsonResource
             'dob' =>  $this->dob,
             'verified' =>  $this->verified,
             'featured' =>  $this->featured,
+            'tiks' => $this->tiks,
             'deactivated_at' =>  $this->deactivated_at,
         ];
 

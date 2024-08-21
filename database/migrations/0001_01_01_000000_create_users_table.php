@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('fcm_token', 255)->nullable();
             $table->timestamp('deactivated_at')->nullable();
             $table->tinyInteger('is_email_sent')->default(0);
+            $table->integer('tiks')->default(0);
             $table->timestamps();
         });
 
