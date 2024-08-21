@@ -91,9 +91,9 @@ Route::middleware('localization')->group(function () {
             Route::post('/updateGroup', [GroupController::class, 'update']);
             Route::post('/removeGroup', [GroupController::class, 'destroy']);
 
-            Route::post('/addUserIntoGroup', [GroupController::class, 'addUser']);
+            Route::post('/addProfileIntoGroup', [GroupController::class, 'addProfile']);
             Route::post('/addContactIntoGroup', [GroupController::class, 'addContact']);
-            Route::post('/removeUserFromGroup', [GroupController::class, 'removeUser']);
+            Route::post('/removeProfileFromGroup', [GroupController::class, 'removeProfile']);
             Route::post('/removeContactFromGroup', [GroupController::class, 'removeContact']);
 
             // User

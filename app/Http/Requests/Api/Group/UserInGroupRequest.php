@@ -26,7 +26,6 @@ class UserInGroupRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => ['required'],
             'profile_id' => ['required'],
             'group_id' => ['required']
         ];
@@ -35,7 +34,7 @@ class UserInGroupRequest extends FormRequest
     public function messages()
     {
         return [
-            'user_id.required' => trans('validation.user_id_required'),
+            'profile_id.required' => trans('Profile Id Is Required'),
             'group_id.required' => trans('validation.group_id_required'),
         ];
     }
