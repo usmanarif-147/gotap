@@ -67,20 +67,23 @@ class CategoryService
                 $transformedPlatform['icon'] = $platform->icon;
                 $transformedPlatform['input'] = $platform->input;
                 $transformedPlatform['baseURL'] = $platform->baseURL;
-                $transformedPlatform['pro'] = (string) $platform->pro;
-                $transformedPlatform['category_id'] = (string) $platform->category_id;
-                $transformedPlatform['status'] = (string) $platform->status;
+                // $transformedPlatform['pro'] = (string) $platform->pro;
+                // $transformedPlatform['category_id'] = (string) $platform->category_id;
+                // $transformedPlatform['status'] = (string) $platform->status;
                 $transformedPlatform['placeholder_en'] = $platform->placeholder_en;
                 $transformedPlatform['placeholder_sv'] = $platform->placeholder_sv;
                 $transformedPlatform['description_en'] = $platform->description_en;
                 $transformedPlatform['description_sv'] = $platform->description_sv;
-                $transformedPlatform['created_at'] = defaultDateFormat($platform->created_at);
-                $transformedPlatform['updated_at'] = defaultDateFormat($platform->updated_at);
-                $transformedPlatform['category'] = $category->name;
-                $transformedPlatform['category_sv'] = $category->name_sv;
+                // $transformedPlatform['created_at'] = defaultDateFormat($platform->created_at);
+                // $transformedPlatform['updated_at'] = defaultDateFormat($platform->updated_at);
+                // $transformedPlatform['category'] = $category->name;
+                // $transformedPlatform['category_sv'] = $category->name_sv;
                 $transformedPlatform['path'] = $userPlatform ? $userPlatform['path'] : null;
-                $transformedPlatform['saved'] =  $userPlatforms ? $this->checkPlatformSaved($platform->id, $userPlatforms) : 0;
+                $transformedPlatform['label'] = $userPlatform ? $userPlatform['label'] : null;
                 $transformedPlatform['direct'] =  $userPlatform ? $userPlatform['direct'] : 0;
+                $transformedPlatform['platform_order'] = $userPlatform ? $userPlatform['platform_order'] : null;
+                $transformedPlatform['saved'] =  $userPlatforms ? $this->checkPlatformSaved($platform->id, $userPlatforms) : 0;
+
 
                 // Add the transformed platform to the array of transformed platforms
                 $transformedPlatforms[] = $transformedPlatform;
@@ -115,7 +118,12 @@ class CategoryService
             ->first();
 
         if ($userPlatform) {
-            return ['path' => $userPlatform->path, 'direct' => $userPlatform->direct];
+            return [
+                'path' => $userPlatform->path,
+                'label' => $userPlatform->label,
+                'platform_order' => $userPlatform->platform_order,
+                'direct' => $userPlatform->direct
+            ];
         }
         return null;
     }
