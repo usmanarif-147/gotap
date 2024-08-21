@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 255)->nullable();
             $table->string('username', 255)->nullable();
-            $table->string('email', 255)->nullable();
+            $table->string('email', 255)->unique()->nullable();
             $table->tinyInteger('status')->default(1);
             $table->tinyInteger('is_suspended')->default(0);
             $table->string('password', 255)->nullable();

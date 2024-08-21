@@ -34,10 +34,6 @@ class ViewProfileRequest extends FormRequest
     {
         return [
             'search_profile_by.required'  => 'Please enter uuid or id or username',
-            // 'username.required_without_all' => trans('validation.username_required_without'),
-            // 'card_uuid.required_without_all' => trans('validation.card_id_required_without'),
-            // 'connect_id.required_without_all' => trans('validation.connect_id_required_without'),
         ];
     }
-
 }

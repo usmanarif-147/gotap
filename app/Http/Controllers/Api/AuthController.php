@@ -42,6 +42,8 @@ class AuthController extends Controller
 
             Profile::create([
                 'user_id' => $user->id,
+                'email' => $request->email,
+                'name' => $request->name,
                 'username' => $request->username,
                 'phone' => $request->phone,
                 'active' => 1,

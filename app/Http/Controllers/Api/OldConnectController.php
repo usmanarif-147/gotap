@@ -6,51 +6,46 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\User\ConnectRequest;
 use App\Http\Requests\Api\User\GetConnect;
 use App\Http\Requests\SearchRequest;
-use App\Models\Profile;
 use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\DB;
 
-class ConnectController extends Controller
+class OldConnectController extends Controller
 {
-
     public function connect(ConnectRequest $request)
     {
-        // check connect id eual to logged in user any profile id
-        $isLoggedInUserProfile = Profile::where('user_id', auth()->id())
-            ->where('id', $request->connect_id)
-            ->exists();
-        if ($isLoggedInUserProfile) {
+
+        if ($request->connect_id == auth()->id()) {
             return response()->json([
                 'message' => 'Please enter valid connect Id'
             ]);
         }
 
-        // check profile exist with connect id
-        $isProflieExist = Profile::where('id', $request->connect_id)->exists();
-        if (!$isProflieExist) {
+        // check connection is valid
+        $connection = User::where('id', $request->connect_id)
+            ->first();
+
+        if (!$connection) {
             return response()->json([
                 'message' => trans('backend.connection_not_found')
             ]);
         }
 
-        // if not then check connection exist between logged in user and profile
-        $isConnectionExist = DB::table('connects')
+        // check
+        $connected = DB::table('connects')
             ->where('connected_id', $request->connect_id)
             ->where('connecting_id', auth()->id())
-            ->exists();
-        if ($isConnectionExist) {
+            ->first();
+        if ($connected) {
             return response()->json([
                 'message' => trans('backend.already_connected')
             ]);
         }
 
-        // if not exist then make connection between user and profile
         try {
             DB::table('connects')->insert([
                 'connected_id' => $request->connect_id,
-                'connecting_id' => auth()->id(),
-                'created_at' => now()
+                'connecting_id' => auth()->id()
             ]);
             return response()->json([
                 'message' => trans('backend.connected_success')
@@ -58,46 +53,6 @@ class ConnectController extends Controller
         } catch (Exception $ex) {
             return response()->json(['message' => $ex->getMessage()]);
         }
-
-
-        // if ($request->connect_id == auth()->id()) {
-        //     return response()->json([
-        //         'message' => 'Please enter valid connect Id'
-        //     ]);
-        // }
-
-        // check connection is valid
-        // $connection = User::where('id', $request->connect_id)
-        //     ->first();
-
-        // if (!$connection) {
-        //     return response()->json([
-        //         'message' => trans('backend.connection_not_found')
-        //     ]);
-        // }
-
-        // check
-        // $connected = DB::table('connects')
-        //     ->where('connected_id', $request->connect_id)
-        //     ->where('connecting_id', auth()->id())
-        //     ->first();
-        // if ($connected) {
-        //     return response()->json([
-        //         'message' => trans('backend.already_connected')
-        //     ]);
-        // }
-
-        // try {
-        //     DB::table('connects')->insert([
-        //         'connected_id' => $request->connect_id,
-        //         'connecting_id' => auth()->id()
-        //     ]);
-        //     return response()->json([
-        //         'message' => trans('backend.connected_success')
-        //     ]);
-        // } catch (Exception $ex) {
-        //     return response()->json(['message' => $ex->getMessage()]);
-        // }
     }
 
     public function disconnect(ConnectRequest $request)
@@ -147,16 +102,16 @@ class ConnectController extends Controller
         $searchQuery = $request->input('query', '');
 
         $connections = User::select(
-            'profiles.id as connection_id',
-            'profiles.name as connection_name',
-            'profiles.email as connection_email',
-            'profiles.username as connection_user_name',
-            'profiles.job_title as connection_job_title',
-            'profiles.company as connection_company',
-            'profiles.photo as connection_photo',
+            'connection.id as connection_id',
+            'connection.name as connection_name',
+            'connection.username as connection_user_name',
+            'connection.job_title as connection_job_title',
+            'connection.company as connection_company',
+            'connection.photo as connection_photo',
+            'connection.verified as verified',
         )
             ->join('connects', 'connects.connecting_id', 'users.id')
-            ->join('profiles', 'profiles.id', 'connects.connected_id')
+            ->join('users as connection', 'connection.id', 'connects.connected_id')
             ->where('users.id', auth()->id())
             ->when(!empty($searchQuery), function ($query) use ($searchQuery) {
                 $query->where('connection.name', 'like', '%' . $searchQuery . '%');

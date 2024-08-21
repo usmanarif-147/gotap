@@ -7,11 +7,9 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Profile\AddProfileRequest;
+use App\Http\Requests\Api\Profile\UpdateProfileRequest;
 use App\Http\Requests\SearchRequest;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Resources\Api\ProfileResource;
-use App\Http\Resources\Api\PlatformResource;
-use App\Http\Requests\Api\Profile\UpdateProfileRequest;
 use App\Http\Resources\Api\UserProfileResource;
 use App\Http\Resources\Api\UserResource;
 use App\Models\Group;
@@ -120,6 +118,8 @@ class ProfileController extends Controller
             }
 
             $data['user_id'] = auth()->id();
+            $data['name'] = $request->name;
+            $data['email'] = $request->email;
             $data['username'] = $request->username;
             $data['work_position'] = $request->work_position;
             $data['phone'] = $request->phone;
@@ -161,7 +161,7 @@ class ProfileController extends Controller
     }
 
 
-    public function update(Request $request)
+    public function update(UpdateProfileRequest $request)
     {
         try {
             $cover_photo = auth()->user()->cover_photo;
@@ -181,19 +181,23 @@ class ProfileController extends Controller
                 $photo = Storage::disk('public')->put('uploads/photos', $request->photo);
             }
 
-            $user = User::where('id', auth()->id())
-                ->first();
+            // $user = User::where('id', auth()->id())
+            //     ->first();
 
-            $isUpdated = User::where('id', auth()->id())
-                ->update([
-                    'name' => $request->name,
-                ]);
+            // $isUpdated = User::where('id', auth()->id())
+            //     ->update([
+            //         'name' => $request->name,
+            //     ]);
 
             $profile = getActiveProfile();
 
-            Profile::where('id', $profile->id)
+            $isUpdated = Profile::where('id', $profile->id)
                 ->where('user_id', auth()->id())
                 ->update([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'username' => $request->username,
+                    'phone' => $request->phone,
                     'work_position' => $request->work_position,
                     'job_title' => $request->job_title,
                     'company' => $request->company,
@@ -222,7 +226,6 @@ class ProfileController extends Controller
             ]);
         } catch (Exception $ex) {
             return response()->json([
-
                 'message' => $ex->getMessage()
             ]);
         }

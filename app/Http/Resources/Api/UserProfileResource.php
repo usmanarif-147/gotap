@@ -16,6 +16,8 @@ class UserProfileResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'name' => $this->name ?? null,
+            'email' => $this->email ?? null,
             'username'  => $this->username ?? null,
             'work_position' => $this->work_position ?? null,
             'job_title'  => $this->job_title ?? null,

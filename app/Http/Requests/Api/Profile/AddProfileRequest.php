@@ -27,9 +27,11 @@ class AddProfileRequest extends FormRequest
     public function rules()
     {
         return [
+            'name' => ['nullable', 'min:5', 'max:15'],
+            'email' => ['nullable', 'email'],
+            'phone' => ['nullable', 'min:5', 'max:15'],
             'username' => ['required', 'min:3', 'max:20', 'regex:/^[A-Za-z][A-Za-z0-9_.]{5,25}$/', Rule::unique(Profile::class)],
             'work_position' => ['nullable', 'min:3', 'max:20'],
-            'phone' => ['nullable', 'min:5', 'max:15'],
             'job_title' => ['nullable', 'string'],
             'company' => ['nullable', 'string'],
             'address' => ['nullable'],

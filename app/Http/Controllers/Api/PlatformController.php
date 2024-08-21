@@ -199,41 +199,44 @@ class PlatformController extends Controller
     /**
      * Direct
      */
-    public function direct(PlatformRequest $request)
-    {
-        $userPlatform = DB::table('user_platforms')
-            ->where('user_id', auth()->id())
-            ->where('platform_id', $request->platform_id)
-            ->first();
-        if (!$userPlatform) {
-            return response()->json(['message' => trans('backend.platform_not_found')]);
-        }
+    // public function direct(PlatformRequest $request)
+    // {
 
-        try {
+    //     $userPlatform = DB::table('user_platforms')
+    //         ->where('user_id', auth()->id())
+    //         ->where('platform_id', $request->platform_id)
+    //         ->first();
+    //     if (!$userPlatform) {
+    //         return response()->json(['message' => trans('backend.platform_not_found')]);
+    //     }
 
-            DB::table('user_platforms')
-                ->where('user_id', auth()->id())
-                ->where('platform_id', '!=', $request->platform_id)
-                ->where('direct', 1)
-                ->update([
-                    'direct' => 0
-                ]);
+    //     try {
+    //         $profile = getActiveProfile();
+    //         DB::table('user_platforms')
+    //             ->where('user_id', auth()->id())
+    //             ->where('profile_id', $profile->id)
+    //             ->where('platform_id', '!=', $request->platform_id)
+    //             ->where('direct', 1)
+    //             ->update([
+    //                 'direct' => 0
+    //             ]);
 
-            DB::table('user_platforms')
-                ->where('user_id', auth()->id())
-                ->where('platform_id', $request->platform_id)
-                ->update([
-                    'direct' => $userPlatform->direct ? 0 : 1
-                ]);
+    //         DB::table('user_platforms')
+    //             ->where('user_id', auth()->id())
+    //             ->where('platform_id', $request->platform_id)
+    //             ->where('profile_id', $profile->id)
+    //             ->update([
+    //                 'direct' => $userPlatform->direct ? 0 : 1
+    //             ]);
 
-            if ($userPlatform->direct) {
-                return response()->json(['message' => trans('backend.platform_hide_success')]);
-            }
-            return response()->json(['message' => trans('backend.platform_visible_success')]);
-        } catch (Exception $ex) {
-            return response()->json(['message' => $ex->getMessage()]);
-        }
-    }
+    //         if ($userPlatform->direct) {
+    //             return response()->json(['message' => trans('backend.platform_hide_success')]);
+    //         }
+    //         return response()->json(['message' => trans('backend.platform_visible_success')]);
+    //     } catch (Exception $ex) {
+    //         return response()->json(['message' => $ex->getMessage()]);
+    //     }
+    // }
 
     /**
      * Increment Click

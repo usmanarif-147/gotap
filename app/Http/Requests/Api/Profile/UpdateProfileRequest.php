@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Api\Profile;
 
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
@@ -27,6 +28,9 @@ class UpdateProfileRequest extends FormRequest
     {
         return [
             'name' => ['required', 'min:3', 'max:20'],
+            'email' => ['nullable', 'email'],
+            'phone' => ['nullable', 'min:5', 'max:15'],
+            'username' => ['required', 'min:3', 'max:20', 'regex:/^[A-Za-z][A-Za-z0-9_.]{5,25}$/', Rule::unique(Profile::class)->ignore(getActiveProfile()->id)],
             'work_position' => ['nullable', 'string'],
             'job_title' => ['nullable', 'string'],
             'company' => ['nullable', 'string'],
@@ -56,6 +60,7 @@ class UpdateProfileRequest extends FormRequest
             'username.min' => trans('validation.username_min'),
             'username.max' => trans('validation.username_max'),
             'username.regex' => trans('validation.username_regex'),
+            'username.unique' => trans('Username already exists'),
             'phone.min' => trans('validation.phone_min'),
             'phone.max' => trans('validation.phone_max'),
             'gender.in' => trans('validation.gender_in'),
