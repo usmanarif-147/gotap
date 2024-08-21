@@ -44,6 +44,7 @@ Route::get('/getAllAccounts', function () {
         ->get()->toArray();
 });
 
+
 Route::middleware('localization')->group(function () {
 
     Route::post('register', [AuthController::class, 'register'])->middleware(['throttle:6,1']);
