@@ -41,10 +41,11 @@ class PhoneContactController extends Controller
      */
     public function phoneContact(ContactDetailsRequest $request)
     {
+        $contact_id = $request->contact_id;
         // get phone contact
         $contact = DB::table('phone_contacts')
             ->where('user_id', auth()->id())
-            ->where('id', $request->id)
+            ->where('id', $contact_id)
             ->first();
 
         if (!$contact) {
@@ -55,7 +56,7 @@ class PhoneContactController extends Controller
 
         return response()->json([
 
-            'message' => 'Phone Contacts',
+            'message' => 'Phone Contact',
             'data' => new ContactResource($contact)
         ]);
     }
@@ -164,9 +165,10 @@ class PhoneContactController extends Controller
      */
     public function remove(ContactDetailsRequest $request)
     {
+        $contact_id = $request->contact_id;
         $platform = DB::table('phone_contacts')
             ->where('user_id', auth()->id())
-            ->where('id', $request->id)
+            ->where('id', $contact_id)
             ->delete();
         if (!$platform) {
             return response()->json(

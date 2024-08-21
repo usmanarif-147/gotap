@@ -26,7 +26,7 @@ class ContactDetailsRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => ['required']
+            'contact_id' => ['required']
         ];
     }
 
