@@ -74,8 +74,6 @@ Route::middleware('localization')->group(function () {
             Route::post('/addPlatform', [PlatformController::class, 'add']);
             Route::post('/removePlatform', [PlatformController::class, 'remove']);
             Route::post('/swapOrder', [PlatformController::class, 'swap']);
-            // Route::post('/platformDirect', [PlatformController::class, 'direct']);
-            // Route::post('/platformDetails', [PlatformController::class, 'details']);
 
             // Phone Contact
             Route::get('/phoneContacts', [PhoneContactController::class, 'index']);
@@ -96,14 +94,11 @@ Route::middleware('localization')->group(function () {
             Route::post('/removeProfileFromGroup', [GroupController::class, 'removeProfile']);
             Route::post('/removeContactFromGroup', [GroupController::class, 'removeContact']);
 
-            // User
-            // Route::post('/connect', [UserController::class, 'connect']);
             Route::get('/analytics', [UserController::class, 'analytics']);
             Route::post('/privateProfile', [UserController::class, 'privateProfile']);
 
             Route::get('/deactivateAccount', [UserController::class, 'deactivateAccount']);
             Route::get('/delete', [UserController::class, 'deleteAccount']);
-
 
             // Cards
             Route::get('/cards', [CardController::class, 'index']);
