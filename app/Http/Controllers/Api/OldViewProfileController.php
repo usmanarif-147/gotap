@@ -4,13 +4,14 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Profile\ViewProfileRequest;
+use App\Http\Resources\Api\PlatformResource;
 use App\Http\Resources\Api\UserProfileResource;
 use App\Models\Card;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
-class ViewProfileController extends Controller
+class OldViewProfileController extends Controller
 {
 
     public function viewUserProfile(ViewProfileRequest $request)
@@ -67,12 +68,32 @@ class ViewProfileController extends Controller
             User::where('id', $res['profile']->user_id)->increment('tiks');
         }
 
+        // $platforms = DB::table('user_platforms')
+        //     ->select(
+        //         'platforms.id',
+        //         'platforms.title',
+        //         'platforms.icon',
+        //         'platforms.input',
+        //         'platforms.baseUrl',
+        //         'user_platforms.created_at',
+        //         'user_platforms.path',
+        //         'user_platforms.label',
+        //         'user_platforms.platform_order',
+        //         'user_platforms.direct',
+        //     )
+        //     ->join('platforms', 'platforms.id', 'user_platforms.platform_id')
+        //     ->where('profile_id', $res['profile']->id)
+        //     ->orderBy(('user_platforms.platform_order'))
+        //     ->get();
+
         $profile = Profile::where('id', $res['profile']->id)->first();
 
 
         return response()->json([
             'message' => 'User profile',
+            // 'profile' => new UserProfileResource(),
             'profile' => new UserProfileResource($profile),
+            // 'platforms' => $platforms,
             'is_connected' => $is_connected
         ]);
     }
