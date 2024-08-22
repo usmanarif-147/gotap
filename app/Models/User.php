@@ -27,6 +27,7 @@ class User extends Authenticatable
         'address',
         'gender',
         'dob',
+        'tiks',
         'verified',
         'featured',
         'fcm_token',

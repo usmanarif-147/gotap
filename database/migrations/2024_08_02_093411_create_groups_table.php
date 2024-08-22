@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
+            $table->integer('old_group_id');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('title', 255)->nullable();
             $table->string('icon', 255)->nullable();

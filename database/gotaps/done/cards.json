@@ -1,0 +1,1392 @@
+[
+    {
+        "id": 1,
+        "uuid": "c65c2ca8-8990-461d-ad64-05cf0277956a",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": " new card  updated",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 2,
+        "uuid": "c2094b78-d8c1-4e58-948e-5823c8a70590",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "new card",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 3,
+        "uuid": "c757e34b-61a1-4f08-b2a8-bac0345d69fa",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "new card",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 4,
+        "uuid": "5ac5cfef-37d2-4020-a585-ea292f150fb1",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "new card",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 5,
+        "uuid": "31ca459a-9cd3-47c4-a8c1-2f5719a8f152",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "new card",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 6,
+        "uuid": "f5204c38-04c5-4f65-a39e-0ababbb7403e",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "ssdsds",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 7,
+        "uuid": "ce6629d2-7782-450b-b094-155d34f5d94f",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "ssdsds",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 8,
+        "uuid": "6848cecb-48be-4b0c-b3ee-b41e2aa322b1",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "ssdsds",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 9,
+        "uuid": "43512f77-a042-4181-b43b-a6441938fe6e",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "assigned to hamiddot47@icloud.com",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 10,
+        "uuid": "6aebe5c2-5f1d-4ad6-8a91-7e30d53ad49c",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "ssdsds",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 11,
+        "uuid": "9bf70357-0d4e-4755-8ff7-71a56f9de242",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "ssdsds",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 12,
+        "uuid": "60401081-3e44-4767-857f-e647d4568989",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "ssdsds",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 13,
+        "uuid": "68de1ca4-c482-40f0-8410-c778da325b04",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "ssdsds",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 14,
+        "uuid": "f43a6c18-bad8-4fd7-b2b7-bb0638217b35",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "ssdsds",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 15,
+        "uuid": "fa51ca61-a3cf-43c7-901d-814b1b9aec83",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "ssdsds",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 16,
+        "uuid": "cc9d4910-5f6e-4d45-adf9-594d1a02e381",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "dffdfd",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 17,
+        "uuid": "3cc8adc3-15c5-4fe4-a8dc-315eefa1651f",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "dffdfd",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 18,
+        "uuid": "e21ac048-f549-4788-bcbd-22ac5105ad44",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "dffdfd",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 19,
+        "uuid": "73447514-61b6-4e3e-8000-2f39942aca8d",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "dffdfd",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 20,
+        "uuid": "f1a8e5a1-71f7-4c3b-bd18-8200b741eec6",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "dffdfd",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 21,
+        "uuid": "5c0c4d06-c823-497f-9539-e65c90be7389",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "Hamza",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 22,
+        "uuid": "cba817d6-ad27-40fd-91a7-e2c1bb5ee261",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "dffdfd",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 23,
+        "uuid": "d9c3c722-c23c-4a85-b82b-8507d405ad67",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "dffdfd",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 24,
+        "uuid": "4d5b98ea-afe9-4243-921c-37f3afebec60",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "dffdfd",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 25,
+        "uuid": "6d982757-d0c3-4adc-b305-fafcd1ddcf28",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "dffdfd",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 26,
+        "uuid": "00179b82-912e-44d3-8a96-272806acfcde",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 1,
+        "description": "newwq",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 27,
+        "uuid": "c939ec2f-23d6-4833-b017-3e731760d54b",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 28,
+        "uuid": "bcd6c89b-5276-4af0-8d12-8dbc0ad071f4",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 29,
+        "uuid": "68cd228e-9a01-4d36-8d94-d75958695b08",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 30,
+        "uuid": "2a514f2d-61be-4fbd-84f4-040fade3acf3",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 31,
+        "uuid": "c322db0c-add6-42c5-ba87-f314b036c1b9",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 32,
+        "uuid": "81c2a143-aa0e-4f28-8ed7-807030009646",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 33,
+        "uuid": "d79f8ab1-f23b-436a-b135-d5cdaa78b4a0",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "Animal",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 34,
+        "uuid": "8d80697e-3098-489f-a717-3c01859acd08",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 35,
+        "uuid": "33c0c0df-d7f5-4628-b3b3-de31237882fc",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "Animal",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 36,
+        "uuid": "f5e18ec7-15dd-4703-a144-450c8c5ed6dd",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "Animal",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 37,
+        "uuid": "50077616-3b55-4cb3-9c5a-a6130fa9c8ff",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 1,
+        "description": "wristband",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 38,
+        "uuid": "4081ab4a-b290-4d9a-af98-188ad6823f9a",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "Grisilda Karoli Wristban",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 39,
+        "uuid": "07185b5f-8259-4d34-92f4-ca34025803d6",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "Todi busines card",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 40,
+        "uuid": "b33ba376-f39c-4640-83db-05e2b586919e",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": " Scantv  Labinot",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 41,
+        "uuid": "6c723896-9294-42bb-a702-5df64c4471dd",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": " Scantv  ledion velaj",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 42,
+        "uuid": "330466cb-07ac-41e4-a177-754a6390be15",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Scantv",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 43,
+        "uuid": "954259d4-f95a-499e-b586-b628c354b961",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": " Scantv  roel",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 44,
+        "uuid": "b342b8ab-ce23-4087-ab8b-687644344d35",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": " Scantv  kreshnik",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 45,
+        "uuid": "adcd02ac-4f5d-4e93-a71d-57bcc4da8581",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": " Scantv  marjol agalliu",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 46,
+        "uuid": "edfb072d-d8d3-4375-a192-3cfa9f90985a",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": " Scantv  dorina",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 47,
+        "uuid": "d3fec01f-2ebc-450e-a1bd-999c79657d40",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": " Scantv  erdogesa",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 48,
+        "uuid": "2dcd9f04-1a7f-4bbd-8c35-7a966f936da0",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Scantv",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 49,
+        "uuid": "41964a0a-eb0e-4334-81c6-440593ce33c1",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Scantv",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 50,
+        "uuid": "19282ac6-5d23-48bd-8729-73d4043bb853",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": " Scantv  Arjan Shkembi",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 51,
+        "uuid": "8dff4da0-057a-48c7-af20-6ffd64fc7a19",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "Animal test ilda",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 52,
+        "uuid": "85df4ad5-9932-44c4-bc36-c4f17b8f860a",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "Albsig 1 Valbona",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 53,
+        "uuid": "e71191a3-98b6-45eb-a1c3-9e988cf75e67",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Deloite Ornela Shehi",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 54,
+        "uuid": "32dbe034-6291-42d4-b053-7f32c1bf993d",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "J karta dema",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 55,
+        "uuid": "ae74ccca-cf22-4a2c-a4d8-a8eb256bfa79",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "Juli sticker1",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 56,
+        "uuid": "0c6889f6-4d6d-42e6-8263-b6a11f3986fd",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "Juli wristband ",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 57,
+        "uuid": "485fe43b-4a94-4646-889a-474cc46b0a20",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Fotografe",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 58,
+        "uuid": "208bbf54-8aa1-4212-b12d-f4605ffc559b",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "GenAlbaFarma",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 59,
+        "uuid": "d7dcb6dd-3b7d-464c-b467-a45fa5231a89",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "GenAlbaFarma",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 60,
+        "uuid": "a3252e46-4d0c-4494-9c77-34c177a9335c",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "GenAlbaFarma",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 61,
+        "uuid": "e6fcccb3-a7d8-4b73-9aea-86fdb5aacfdb",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "Alban domi 1",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 62,
+        "uuid": "1946ff41-74cb-4ef0-8544-c54a996cd4c8",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "Alban domi 2",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 63,
+        "uuid": "3d6fc6f3-924b-4522-a7ec-844e29ce012f",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 64,
+        "uuid": "e831991b-228b-4baf-9b65-540031bd5913",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 65,
+        "uuid": "d2ecd034-8250-4375-983f-fb2b35a09c35",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 66,
+        "uuid": "4d8bac84-831e-42d4-8d10-640fcfab81b8",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 67,
+        "uuid": "241eec51-b5d2-4fce-9bd7-c33baf7bd955",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 68,
+        "uuid": "6622dffd-fd45-4daf-b97f-54d3e5fd966d",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 69,
+        "uuid": "2378fcf4-6065-410b-838c-69276ace3eee",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 70,
+        "uuid": "638eca22-58bd-4d8c-8db4-d6bbe1189c03",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 71,
+        "uuid": "f61f59c5-b028-4e86-8279-6bbbb152ce7d",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 72,
+        "uuid": "8e434240-d5f6-44b2-8394-17c4b2f1d521",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 73,
+        "uuid": "1d536676-ebc8-4954-82d1-17de3acead63",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 74,
+        "uuid": "89497584-3031-460d-824f-4f5b1643be1d",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 75,
+        "uuid": "4987409c-37f7-4688-b122-a96bd72c7cbd",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 76,
+        "uuid": "f98c0c64-4cf3-4879-9302-87c09be83e3c",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 77,
+        "uuid": "d11a6cd1-1a2c-499e-86d2-b589f579d133",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 78,
+        "uuid": "ee4830d6-46d8-453c-bcfd-77a5762ba542",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 79,
+        "uuid": "c9964273-6373-40e3-8e6b-62927628a51f",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 80,
+        "uuid": "d15cf5e7-be51-4cc3-81eb-b5ed24110709",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 81,
+        "uuid": "2b27cd16-d435-4c26-8180-dd9af4f37aef",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 82,
+        "uuid": "c53bd4c1-0502-400a-8b98-b5791c8bcb5e",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 83,
+        "uuid": "41de7c9e-fefd-4c6d-a391-59fa1868a649",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 84,
+        "uuid": "fbe0e908-13a9-4e89-a39f-a50d09c95e4c",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 85,
+        "uuid": "57db344f-75eb-486b-8a93-9638084937ba",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 86,
+        "uuid": "82cefcb5-ed43-4f96-a6ed-2ae225b6b2ad",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 87,
+        "uuid": "b7ed3a15-d1f4-4966-a268-594e63ca6723",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 88,
+        "uuid": "9f45fe6e-f715-4466-a4c6-bbe1ce40a326",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 89,
+        "uuid": "f9ad6625-28b1-44f5-81d6-aa07b1d86aad",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 90,
+        "uuid": "6065bc94-c98e-45af-98a7-272ebc3e1f2c",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 91,
+        "uuid": "d0ff676a-50f2-4387-b303-0d680d544e7f",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 92,
+        "uuid": "4c5b1603-362b-45df-924d-54d34c9d9cb1",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 93,
+        "uuid": "7607342d-bbd7-425e-ad29-65473e1136e2",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 94,
+        "uuid": "32ffc012-23e8-4bf9-bb6a-3968891398af",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 95,
+        "uuid": "7bb88cf2-3c75-40d1-a7bf-a4490980aaf8",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 96,
+        "uuid": "556c55e0-eca2-4433-90a3-e899690be380",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 97,
+        "uuid": "3cd5d461-bf87-4fde-9733-c3555c5fc53f",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 98,
+        "uuid": "2e97be7b-ba7c-42e1-a29a-e0a8d3bee7cb",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 99,
+        "uuid": "d59fe276-0348-4fac-a967-ec9235b2676a",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 100,
+        "uuid": "3523b24f-76ea-46b7-ba0f-2d64ee573c35",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 101,
+        "uuid": "d0097424-e9fb-4eae-b0d1-e91bdb17939f",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 102,
+        "uuid": "c5a2cf4b-7d27-426e-ae5b-e27c14b687cb",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 103,
+        "uuid": "577642d4-bd41-46b5-b772-e7e1400b1b49",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 104,
+        "uuid": "0cb59284-196b-47fb-865f-f90c00839f53",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 105,
+        "uuid": "713d12c7-ca1d-4c92-bb3f-35e6a5a057e4",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 106,
+        "uuid": "30c4f2dd-7be4-4ac5-adb0-90b233b22b4c",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 107,
+        "uuid": "0c705a34-5e09-4e40-b6da-c87de76a2c4e",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 108,
+        "uuid": "1c64f235-81a1-492d-9d9d-fea87ae926c1",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 109,
+        "uuid": "f42e83c5-5083-46e6-8b62-18aa8219616e",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 110,
+        "uuid": "7d7951b3-444f-4db4-808d-d393a62552d2",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 111,
+        "uuid": "0343a402-9df9-48c7-b853-8bdebd5faa4d",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 112,
+        "uuid": "94ea918a-bd7f-45cf-bf8f-1d891eddc4da",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 113,
+        "uuid": "4429bac3-d238-45ac-8ca8-21f02c037cc6",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 114,
+        "uuid": "c88fb4d8-279b-4612-a7d4-86d58d5f8619",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 115,
+        "uuid": "13e31649-e71a-41c9-81b3-37dc12de89ca",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 116,
+        "uuid": "1016805f-2573-4d20-8a1c-ba65860e4597",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 117,
+        "uuid": "292bb135-249e-441e-b9c5-b941588ddea8",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 118,
+        "uuid": "fe0060b4-f320-49fc-802d-ff4b4e32313b",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 119,
+        "uuid": "fe13291b-770e-4dee-af85-c212b9fb66ce",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 120,
+        "uuid": "c9007dfb-fcc2-4d12-8c85-7e03af51e798",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 121,
+        "uuid": "8481c957-c130-435b-977b-e2f104d9a5c7",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 122,
+        "uuid": "2d121782-1254-4efd-a577-0f83c8328705",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal Shitje",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 123,
+        "uuid": "876e84ec-08a1-4d41-b614-fb75936c9dc4",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "Sidorela tarja",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 124,
+        "uuid": "b4ab3ed8-6f13-4b79-a97f-0cacdc56fea5",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "iLDA kAMERAMANI",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 125,
+        "uuid": "be9d79b2-f4b0-4b83-aaab-2d573d269954",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "Blogeconomy Blerina",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 126,
+        "uuid": "e16f0891-44d5-4e3f-bd17-0a57b5a258d3",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "Grisilda KAROLI2",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 127,
+        "uuid": "49a3d4c8-5780-4246-8d33-ed1545aa67af",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "Gerti Bogdani1",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 128,
+        "uuid": "ae539eeb-b2b1-4ab1-8d72-c18d06ca5fc7",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "Idp",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 129,
+        "uuid": "284ae664-5ded-4afa-a63b-9d9acb37d751",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "rentalcarairoport",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 130,
+        "uuid": "5d6cebbd-0288-4aa2-9c3e-31c3fdedd4c9",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": " HAPPY TOURS CARD sabina",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 131,
+        "uuid": "89f679b5-7aeb-4c5e-a673-383ca08d4910",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": " HAPPY TOURS CARD  rrahman",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 132,
+        "uuid": "0253babb-0704-47e2-9b91-03c39fc930f7",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": " HAPPY TOURS CARD ilda",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 133,
+        "uuid": "a50842d8-3cfb-4b74-a967-980cf1d82981",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "xhelsonCBS",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 134,
+        "uuid": "5d554d8a-1c11-4b40-9903-824c1641d40f",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "Animal car jul friend",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 135,
+        "uuid": "589010a8-7009-49d5-a68e-3fb128cf3fb1",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "test card by abdullah",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 136,
+        "uuid": "fc52dcde-fef2-4fbb-bf4c-b98cdcd7bfb5",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "test card by abdullah",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 137,
+        "uuid": "4b375334-1b60-4f03-ae23-759ccb255355",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "test card by abdullah",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 138,
+        "uuid": "116b6b18-769c-420b-ae72-c50f08281003",
+        "type": "Standard",
+        "status": 1,
+        "is_assigned": 0,
+        "description": "test card by abdullah",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 139,
+        "uuid": "52059b30-fa4b-4023-941b-354aa34f1741",
+        "type": "Standard",
+        "status": 0,
+        "is_assigned": 0,
+        "description": "test card by abdullah",
+        "created_at": null,
+        "updated_at": null
+    }
+]

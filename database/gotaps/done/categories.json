@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "name": "Social",
+        "name_sv": "Social",
+        "status": 1,
+        "created_at": "2021-01-15 13:28:22",
+        "updated_at": "2021-03-01 16:52:43"
+    },
+    {
+        "id": 2,
+        "name": "Contact",
+        "name_sv": "Contact\t",
+        "status": 1,
+        "created_at": "2021-01-15 13:30:04",
+        "updated_at": "2021-04-14 01:24:34"
+    },
+    {
+        "id": 3,
+        "name": "Music",
+        "name_sv": "Music",
+        "status": 1,
+        "created_at": "2021-01-15 13:30:14",
+        "updated_at": "2021-04-14 01:24:23"
+    },
+    {
+        "id": 4,
+        "name": "Payment",
+        "name_sv": "Betalning",
+        "status": 1,
+        "created_at": "2021-01-15 13:30:21",
+        "updated_at": "2021-03-01 16:53:07"
+    },
+    {
+        "id": 5,
+        "name": "More",
+        "name_sv": "\u00d6vrigt",
+        "status": 1,
+        "created_at": "2021-01-15 13:30:30",
+        "updated_at": "2021-03-02 18:20:16"
+    },
+    {
+        "id": 6,
+        "name": "FUNNY",
+        "name_sv": "FUNNY",
+        "status": 1,
+        "created_at": "2021-04-09 21:12:25",
+        "updated_at": "2021-04-09 21:12:25"
+    },
+    {
+        "id": 7,
+        "name": "RealEstate",
+        "name_sv": "RealEstate",
+        "status": 1,
+        "created_at": "2021-04-15 22:15:06",
+        "updated_at": "2021-04-15 22:15:06"
+    },
+    {
+        "id": 8,
+        "name": "Ray ROY AL",
+        "name_sv": "yuytuytutuyt",
+        "status": 1,
+        "created_at": "2021-04-20 18:44:49",
+        "updated_at": "2021-04-20 18:44:49"
+    },
+    {
+        "id": 9,
+        "name": "COVID-19",
+        "name_sv": "COVID-19",
+        "status": 1,
+        "created_at": "2021-08-27 22:04:11",
+        "updated_at": "2021-08-27 22:04:11"
+    },
+    {
+        "id": 10,
+        "name": "TiranaEYC",
+        "name_sv": "TiranaEYC",
+        "status": 1,
+        "created_at": "2021-10-27 17:32:58",
+        "updated_at": "2021-10-27 17:32:58"
+    },
+    {
+        "id": 11,
+        "name": "Professional Media Platform",
+        "name_sv": "Professionell medieplattform",
+        "status": 1,
+        "created_at": "2023-04-27 16:39:56",
+        "updated_at": "2023-04-27 16:39:56"
+    },
+    {
+        "id": 12,
+        "name": "Social media",
+        "name_sv": " Sociala media",
+        "status": 1,
+        "created_at": "2023-04-27 16:41:13",
+        "updated_at": "2023-04-27 16:41:13"
+    },
+    {
+        "id": 13,
+        "name": " Sociala media",
+        "name_sv": " Sociala media",
+        "status": 1,
+        "created_at": "2023-04-27 16:43:06",
+        "updated_at": "2023-04-27 16:43:06"
+    },
+    {
+        "id": 14,
+        "name": "Entertainment",
+        "name_sv": " Sociala media",
+        "status": 1,
+        "created_at": "2023-04-27 16:43:56",
+        "updated_at": "2023-04-27 16:43:56"
+    },
+    {
+        "id": 15,
+        "name": "Content",
+        "name_sv": "Content",
+        "status": 1,
+        "created_at": "2024-08-19 01:32:17",
+        "updated_at": "2024-08-19 01:32:17"
+    }
+]

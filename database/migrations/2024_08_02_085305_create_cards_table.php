@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
+            $table->integer('old_card_id');
             $table->string('uuid', 255);
             $table->string('type')->default('Standard');
             $table->tinyInteger('status')->default(0);

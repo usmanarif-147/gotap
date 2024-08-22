@@ -2,14 +2,11 @@
 
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\VCardController;
-use App\Models\Card;
-use App\Models\Group;
-use App\Models\User;
+use App\Models\done\Group;
+use App\Models\done\User;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
-
 
 Route::get('/privacy-and-policy', function () {
     return view('landingpage.privacy-policy');

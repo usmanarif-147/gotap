@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "email": "admin@gotap.com",
+        "user_name": "admin",
+        "role": 2,
+        "password": "$2y$12$CNlfYYnhDtU91rYKmIjMoOoz..kMQ6pr3DzNk1KGlxr8REijtYh56",
+        "experties": "Super Admin",
+        "created_at": null,
+        "updated_at": null
+    }
+]
