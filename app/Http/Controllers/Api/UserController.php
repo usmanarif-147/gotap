@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\User\ConnectRequest;
 use App\Models\Group;
 use App\Http\Resources\Api\ProfileResource;
+use App\Http\Resources\Api\UserProfileResource;
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -49,32 +51,32 @@ class UserController extends Controller
      */
     public function privateProfile()
     {
+        $profile = getActiveProfile();
 
-        $user = auth()->user();
-
-        if ($user->private) {
-            User::where('id', $user->id)
+        if ($profile->private) {
+            Profile::where('id', $profile->id)
                 ->update(
                     [
                         'private' => 0
                     ]
                 );
-
-            $user = User::find(auth()->id());
+            $profile = getActiveProfile();
             return response()->json([
-                'message' => trans('backend.profile_set_public'), 'data' => new ProfileResource($user)
+                'message' => trans('backend.profile_set_public'),
+                'data' => new UserProfileResource($profile)
             ]);
         }
 
-        User::where('id', auth()->id())
+        Profile::where('id', $profile->id)
             ->update(
                 [
                     'private' => 1
                 ]
             );
-        $user = User::find(auth()->id());
+        $profile = getActiveProfile();
         return response()->json([
-            'message' => trans('backend.profile_set_private'), 'data' => new ProfileResource($user)
+            'message' => trans('backend.profile_set_private'),
+            'data' => new UserProfileResource($profile)
         ]);
     }
 
